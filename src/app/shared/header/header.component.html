@@ -1,0 +1,20 @@
+<header>
+  <mat-toolbar class="navbar" color="primary">
+    <div class="navbar-logo">
+      <!-- Add your brand logo image or text here -->
+      <img src="./assets/wixlogo.jpg" alt="Logo">
+    </div>
+    <div class="navbar-links" [class.open]="isMenuOpen">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Blogs</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Login</a></li>
+        <li><a href="#" class="signup-btn">Sign up</a></li>
+      </ul>
+    </div>
+    <button mat-icon-button class="navbar-toggle" (click)="toggleMenu()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </mat-toolbar>
+</header>

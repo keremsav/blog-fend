@@ -1,0 +1,113 @@
+.footer {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f5f5f5;
+  padding: 30px 0;
+  text-align: center;
+}
+
+.newsletter {
+  margin-bottom: 20px;
+}
+
+.newsletter h4 {
+  font-size: 18px;
+}
+
+.newsletter form {
+  margin-top: 10px;
+}
+
+.newsletter input[type="email"] {
+  padding: 8px;
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.newsletter button {
+  padding: 8px 15px;
+  border: none;
+  background-color: #333;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+
+.logo img {
+  height: 60px;
+  width: 60px;
+  margin-right: 10px;
+}
+
+.slogan h4 {
+  font-size: 18px;
+}
+
+.router-links {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.link-group {
+  margin-right: 20px;
+}
+
+.link-group h5 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.link-group ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.link-group li {
+  margin-bottom: 5px;
+}
+
+.link-group a {
+  color: #333;
+  text-decoration: none;
+}
+
+.link-group a:hover {
+  color: #481088;
+}
+
+.social-media {
+  margin-bottom: 20px;
+}
+
+.social-media h5 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.social-icons a {
+  display: inline-block;
+  margin-right: 10px;
+  color: #333;
+  font-size: 20px;
+}
+
+.rights-reserved {
+  margin-bottom: 10px;
+}
+
+.rights-reserved p {
+  font-size: 14px;
+  color: #777;
+}
