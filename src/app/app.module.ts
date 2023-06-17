@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-//import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 
 
 import { AppComponent } from './app.component';
@@ -23,6 +23,8 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatIconModule} from "@angular/material/icon";
 import {MatInputModule} from "@angular/material/input";
 import { RecentBlogsComponent } from './blog/recent-blogs/recent-blogs.component';
+import {MatCardModule} from "@angular/material/card";
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -38,7 +40,8 @@ import { RecentBlogsComponent } from './blog/recent-blogs/recent-blogs.component
     BlogItemComponent,
     CommentListComponent,
     CommentItemComponent,
-    RecentBlogsComponent
+    RecentBlogsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +53,8 @@ import { RecentBlogsComponent } from './blog/recent-blogs/recent-blogs.component
     MatToolbarModule,
     MatIconModule,
     MatInputModule,
-    // AppRoutingModule
+    MatCardModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
