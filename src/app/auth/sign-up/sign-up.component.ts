@@ -13,6 +13,9 @@ export class SignUpComponent {
   password: string = '';
 
   email : string = '';
+  usernameError: string = '';
+  passwordError: string = '';
+  emailError: string = '';
 
 
   constructor(private authService: AuthService, private router: Router) {

@@ -10,17 +10,21 @@
       <mat-form-field>
         <mat-label>Username</mat-label>
         <input matInput placeholder="Enter your username" [(ngModel)]="username">
+        <mat-error *ngIf="usernameError">{{ usernameError }}</mat-error>
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Email</mat-label>
         <input matInput placeholder="Enter your email" [(ngModel)]="email">
+        <mat-error *ngIf="emailError">{{ emailError }}</mat-error>
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Password</mat-label>
         <input matInput type="password" placeholder="Enter your password" [(ngModel)]="password">
+        <mat-error *ngIf="passwordError">{{ passwordError }}</mat-error>
       </mat-form-field>
+
 
       <!-- Diğer giriş alanları ve form elemanlarını buraya ekleyin -->
     </mat-card-content>
