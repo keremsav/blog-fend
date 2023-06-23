@@ -1,0 +1,31 @@
+<!-- blog.component.html -->
+<app-header></app-header>
+
+<div class="blog-container">
+  <div class="blog-row" *ngFor="let row of blogRows">
+    <div class="blog-column" *ngFor="let blog of row">
+      <div class="blog-card" (click)="navigateToBlog(blog.id)">
+        <img class="blog-image" src="{{ blog.image }}" alt="Blog Image">
+        <div class="author-date">
+          <p class="author">{{blog.author}}</p>
+          <p class="date">{{blog.formattedDate}}</p>
+        </div>
+        <div class="blog-details">
+          <h3 class="blog-title">{{ blog.title }}</h3>
+          <p class="blog-description">{{ blog.content }}</p>
+          <div class="blog-tags">
+            <span class="tag" *ngFor="let tag of blog.tags">{{ tag }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="pagination">
+  <button class="pagination-button" (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+  <span class="pagination-page">{{ currentPage }}</span>
+  <button class="pagination-button" (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+</div>
+
+<app-footer></app-footer>

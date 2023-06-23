@@ -11,6 +11,7 @@
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  position: relative; /* Add position relative to the card */
 }
 
 .signin-title {
@@ -27,4 +28,17 @@
 .error-message {
   color: red;
   margin-top: 10px;
+}
+
+.forgot-password-link {
+  position: absolute; /* Position the link absolutely */
+  bottom: 25px; /* Adjust the top positioning as needed */
+  right: 20px; /* Adjust the right positioning as needed */
+  color: #666;
+  text-decoration: none;
+}
+
+.forgot-password-link:hover {
+  color: #333;
+  text-decoration: underline;
 }

@@ -22,7 +22,7 @@ export class BlogService {
     return this.http.post<any>(`${this.apiPostUrl}`, body);
   }
 
-  getPosts(): Observable<any[]> {
+  getAllPosts(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiPostUrl}`);
   }
 

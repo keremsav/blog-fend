@@ -20,6 +20,7 @@
 
     <mat-card-actions>
       <button mat-raised-button color="primary" (click)="signIn()">Sign In</button>
+      <a class="forgot-password-link" (click)="forgotPassword()">Forgot Password?</a>
     </mat-card-actions>
 
     <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>

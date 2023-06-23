@@ -38,4 +38,10 @@ export class SignInComponent {
       }
     );
   }
+  forgotPassword(): void {
+    // Implement the logic for the "Forgot Password" feature
+    // This could involve sending a password reset email or directing the user to a password reset page
+    // You can add your own custom logic here
+    console.log('Forgot Password clicked');
+  }
 }

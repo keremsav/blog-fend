@@ -25,6 +25,7 @@ import {MatInputModule} from "@angular/material/input";
 import { RecentBlogsComponent } from './blog/recent-blogs/recent-blogs.component';
 import {MatCardModule} from "@angular/material/card";
 import { HomeComponent } from './home/home.component';
+import { AllBlogsComponent } from './blog/all-blogs/all-blogs.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { HomeComponent } from './home/home.component';
     CommentListComponent,
     CommentItemComponent,
     RecentBlogsComponent,
-    HomeComponent
+    HomeComponent,
+    AllBlogsComponent
   ],
   imports: [
     BrowserModule,
