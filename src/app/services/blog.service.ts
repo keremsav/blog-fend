@@ -22,9 +22,14 @@ export class BlogService {
     return this.http.post<any>(`${this.apiPostUrl}`, body);
   }
 
-  getAllPosts(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiPostUrl}`);
+  getAllPosts(page: number, limit: number): Observable<any[]> {
+    const params = {
+      page: page.toString(),
+      limit: limit.toString()
+    };
+    return this.http.get<any[]>(`${this.apiPostUrl}`, { params });
   }
+
 
   getPostById(id: string): Observable<any> {
     return this.http.get<any>(`${this.apiPostUrl}/${id}`);

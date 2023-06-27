@@ -1,7 +1,7 @@
 <!-- blog.component.html -->
 <app-header></app-header>
 
-<div class="blog-container">
+<<div class="blog-container">
   <div class="blog-row" *ngFor="let row of blogRows">
     <div class="blog-column" *ngFor="let blog of row">
       <div class="blog-card" (click)="navigateToBlog(blog.id)">
@@ -22,10 +22,12 @@
   </div>
 </div>
 
+
 <div class="pagination">
   <button class="pagination-button" (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
   <span class="pagination-page">{{ currentPage }}</span>
-  <button class="pagination-button" (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+  <button class="pagination-button" (click)="nextPage()">Next</button>
 </div>
+
 
 <app-footer></app-footer>
