@@ -15,88 +15,40 @@
         <div class="col-md-6">
           <div class="recent-blogs">
             <div class="blog-container">
-              <div class="blog-details">
-                <img src="./assets/blogphoto2.jpeg" alt="Blog Image">
+              <div class="blog-details" *ngFor="let blog of leftBlogRows">
+                <img src="{{blog.image}}" alt="Blog Image">
                 <div class="author-date">
-                  <p class="author">Author Name</p>
-                  <p class="date">June 1, 2023</p>
+                  <p class="author">{{blog.author}}</p>
+                  <p class="date">{{blog.formattedDate}}</p>
                 </div>
-                <h4 class="title">Blog Title</h4>
-                <p class="excerpt">This is a short excerpt of the blog post...</p>
+                <h4 class="title">{{blog.title}}</h4>
+                <p class="excerpt">{{blog.content}}</p>
                 <div class="tags">
-                  <div class="tag">Tag 1</div>
-                  <div class="tag">Tag 2</div>
-                  <div class="tag">Tag 3</div>
+                  <span class="tag" *ngFor="let tag of blog.tags">{{ tag }}</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div class="col-md-6">
-          <div class="row recent-blogs-right">
+          <div class="row recent-blogs-right" *ngFor="let rightblogs of rightBlogRows">
             <div class="col-md-6">
               <div class="blog-container">
                 <div class="blog-details">
-                  <img src="./assets/blogphoto1.jpeg" alt="Blog Image" class="right-image">
+                  <img src="{{rightblogs.image}}" alt="Blog Image" class="right-image">
                 </div>
               </div>
             </div>
             <div class="col-md-6">
               <div class="blog-details">
                 <div class="author-date">
-                  <p class="author">Author Name</p>
-                  <p class="date">June 2, 2023</p>
+                  <p class="author">{{rightblogs.author}}</p>
+                  <p class="date">{{rightblogs.formattedDate}}</p>
                 </div>
-                <h4 class="title">Blog Title</h4>
-                <p class="excerpt">This is a short excerpt of the blog post fnjkndj ngf  nj njfgn kfsng kjnfg jksfn kjnfgjk nfsjkg njkfgn fjkgn jfskgn jkfsgn jfsgn kjgfns jknfg jfgs njfksg njfkgnjk sfgjk njgfn kjfgn ksfgfgjs ndjfnvjkdsn jn jfngj nfsjk njfk nljfsn kfng jfgn jkfsngjk nfgs nfgsjk nfjkgn fgsjk nsjflg njfg nsfjknjkfsg  ...</p>
+                <h4 class="title">{{rightblogs.title}}</h4>
+                <p class="excerpt">{{rightblogs.content}}</p>
                 <div class="tags">
-                  <div class="tag">Tag 1</div>
-                  <div class="tag">Tag 2</div>
-                  <div class="tag">Tag 3</div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="blog-container">
-                <div class="blog-details">
-                  <img src="./assets/blogphoto4.jpeg" alt="Blog Image" class="right-image">
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="blog-details">
-                <div class="author-date">
-                  <p class="author">Author Name</p>
-                  <p class="date">June 3, 2023</p>
-                </div>
-                <h4 class="title">Blog Title</h4>
-                <p class="excerpt">This is a short excerpt of the blog post...</p>
-                <div class="tags">
-                  <div class="tag">Tag 1</div>
-                  <div class="tag">Tag 2</div>
-                  <div class="tag">Tag 3</div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="blog-container">
-                <div class="blog-details">
-                  <img src="./assets/blogphoto3.png" alt="Blog Image">
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="blog-details">
-                <div class="author-date">
-                  <p class="author">Author Name</p>
-                  <p class="date">June 4, 2023</p>
-                </div>
-                <h4 class="title">Blog Title</h4>
-                <p class="excerpt">This is a short excerpt of the blog post...</p>
-                <div class="tags">
-                  <div class="tag">Tag 1</div>
-                  <div class="tag">Tag 2</div>
-                  <div class="tag">Tag 3</div>
+                  <span class="tag" *ngFor="let tag of rightblogs.tags">{{ tag }}</span>
                 </div>
               </div>
             </div>
