@@ -15,7 +15,7 @@
         <div class="col-md-6">
           <div class="recent-blogs">
             <div class="blog-container">
-              <div class="blog-details" *ngFor="let blog of leftBlogRows">
+              <div class="blog-details" *ngFor="let blog of leftBlogRows" (click)="navigateToBlog(blog._id)">
                 <img src="{{blog.image}}" alt="Blog Image">
                 <div class="author-date">
                   <p class="author">{{blog.author}}</p>
@@ -31,7 +31,7 @@
           </div>
         </div>
         <div class="col-md-6">
-          <div class="row recent-blogs-right" *ngFor="let rightblogs of rightBlogRows">
+          <div class="row recent-blogs-right" *ngFor="let rightblogs of rightBlogRows" (click)="navigateToBlog(rightblogs._id)">
             <div class="col-md-6">
               <div class="blog-container">
                 <div class="blog-details">

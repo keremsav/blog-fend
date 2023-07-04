@@ -47,11 +47,6 @@ export class AllBlogsComponent {
       }
     );
   }
-
-
-  calculateTotalPages(): void {
-    this.totalPages = Math.ceil(this.blogs.length / this.pageSize);
-  }
   splitBlogsIntoRows(): void {
     this.blogRows = [];
     const totalBlogs = this.blogs.length;
@@ -62,12 +57,6 @@ export class AllBlogsComponent {
       this.blogRows[rowIndex] = row;
       rowIndex++;
     }
-  }
-
-  paginateBlogs(): void {
-    const startIndex = (this.currentPage - 1) * this.pageSize;
-    const endIndex = startIndex + this.pageSize;
-    this.blogRows = this.blogs.slice(startIndex, endIndex);
   }
 
   navigateToBlog(blogId: number): void {

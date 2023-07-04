@@ -10,5 +10,6 @@ export class HeaderComponent {
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
+    document.body.classList.toggle('navbar-open', this.isMenuOpen);
   }
 }

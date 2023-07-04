@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BlogService } from "../../services/blog.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-recent-blogs',
@@ -11,7 +12,7 @@ export class RecentBlogsComponent implements OnInit {
   leftBlogRows: any[] = [];
   rightBlogRows : any[] = [];
 
-  constructor(private blogService: BlogService) { }
+  constructor(private blogService: BlogService, private router: Router) {}
 
   ngOnInit(): void {
     this.fetchRecentBlogs();
@@ -39,6 +40,10 @@ export class RecentBlogsComponent implements OnInit {
       let z = i-1;
       this.rightBlogRows[z] = this.recentBlogs[i];
     }
+  }
+  navigateToBlog(blogId: number): void {
+    // Blogun özel sayfasına yönlendir
+    this.router.navigate(['/blog', blogId]);
   }
 }
 

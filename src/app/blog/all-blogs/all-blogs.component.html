@@ -4,7 +4,7 @@
 <<div class="blog-container">
   <div class="blog-row" *ngFor="let row of blogRows">
     <div class="blog-column" *ngFor="let blog of row">
-      <div class="blog-card" (click)="navigateToBlog(blog.id)">
+      <div class="blog-card" (click)="navigateToBlog(blog._id)">
         <img class="blog-image" src="{{ blog.image }}" alt="Blog Image">
         <div class="author-date">
           <p class="author">{{blog.author}}</p>

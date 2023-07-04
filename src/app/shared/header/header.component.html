@@ -4,7 +4,7 @@
       <!-- Add your brand logo image or text here -->
       <img src="./assets/wixlogo.jpg" alt="Logo">
     </div>
-    <div class="navbar-links" [class.open]="isMenuOpen">
+    <div class="navbar-links" [class.navbar-open]="isMenuOpen">
       <ul>
         <li><a href="#">Home</a></li>
         <li><a href="/blogs">Blogs</a></li>
@@ -14,7 +14,7 @@
       </ul>
     </div>
     <button mat-icon-button class="navbar-toggle" (click)="toggleMenu()">
-      <mat-icon>menu</mat-icon>
+      <mat-icon class="toggle-icon">menu</mat-icon>
     </button>
   </mat-toolbar>
 </header>
