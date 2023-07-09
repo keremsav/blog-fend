@@ -1,18 +1,48 @@
 <app-header></app-header>
-<div *ngIf="blog">
-  <div class="blog-detail">
-    <div class="blog-image">
-      <img src="{{ blog.image }}" alt="Blog Image">
+<div class="container" *ngIf="blog">
+  <div class="row mt-5 pt-5">
+    <div class="col-md-9 post-content">
+      <div class="container">
+        <div class="row">
+          <div class="single-post">
+            <div class="post-meta">
+              <div class="author-date d-inline-flex ">
+                <p class="author">{{blog.author}}</p>
+                <p class="date mx-1">{{blog.createdAt}}</p>
+              </div>
+              <div class="blog-title lh-base">{{blog.title}}</div>
+              <div class="blog-content" *ngFor="let paragraph of paragraphs; let i = index">
+                <p [ngClass]="{'first-letter': i === 0}">{{paragraph}}</p>
+                <img class="img-fluid" *ngIf="i === 0" src="{{blog.image}}" alt="Image">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="blog-info">
-      <p class="blog-author">{{ blog.author }}</p>
-      <p class="blog-date">Published on {{ blog.createdAt }}</p>
-    </div>
-    <h1 class="blog-title">{{ blog.title }}</h1>
-    <div class="blog-content">{{ blog.content }}</div>
-    <div class="blog-footer">
-      <a class="btn btn-back" routerLink="/blogs">Back to All Blogs</a>
+    <div class="col-md-3">
+      <div class="row">
+        <h3 class="border-bottom border-black border-2">LATEST</h3>
+        <div class="border-bottom mt-2" *ngFor="let latesBlog of blogs">
+          <div class="author-date d-inline-flex ">
+            <p class="author">{{latesBlog.author}}</p>
+            <p class="date mx-1">{{latesBlog.formattedDate}}</p>
+          </div>
+          <h2>{{latesBlog.title}}</h2>
+          <button class="bg-white border-0" (click)="navigateToBlog(latesBlog._id)">
+            <mat-icon>arrow_outward</mat-icon>
+          </button>
+        </div>
+        <h3 class="border-bottom border-black border-2 mt-3">TAGS</h3>
+        <div class="d-inline-flex mb-5">
+          <div class="parent-class" *ngFor="let tag of blog.tags">
+            <span class="tag">{{tag}}</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+</div>
+<div>
 </div>
 <app-footer></app-footer>

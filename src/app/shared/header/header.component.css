@@ -1,31 +1,169 @@
+/* CSS styles for the header component */
 .header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  padding-top: 70px;
+  height: 90px;
+  transition: all 0.5s;
+  z-index: 997;
+  background: #f2f2f2;
+}
+/*--------------------------------------------------------------
+# Desktop Navigation
+--------------------------------------------------------------*/
+@media (min-width: 1280px) {
+  .navbar {
+    padding: 0;
+  }
+
+  .navbar ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    align-items: center;
+  }
+
+  .navbar li {
+    position: relative;
+  }
+
+  .navbar a,
+  .navbar a:focus {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0 10px 30px;
+    font-family:"Times New Roman",sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 1); /* Update RGBA value here */
+    white-space: nowrap;
+    transition: 0.3s;
+  }
+
+  .navbar a i,
+  .navbar a:focus i {
+    font-size: 12px;
+    line-height: 0;
+    margin-left: 5px;
+  }
+
+  .navbar a:hover,
+  .navbar .active,
+  .navbar .active:focus,
+  .navbar li:hover > a {
+    color: #000; /* Update color value here */
+  }
+
+  .navbar .getstarted,
+  .navbar .getstarted:focus {
+    background: #333; /* Update color value here */
+    padding: 8px 20px;
+    margin-left: 30px;
+    border-radius: 4px;
+    color: #fff; /* Update color value here */
+  }
+
+  .navbar .getstarted:hover,
+  .navbar .getstarted:focus:hover {
+    color: #fff; /* Update color value here */
+    background: rgba(51, 51, 51, 0.8); /* Update RGBA value here */
+  }
+}
+.mobile-nav-toggle {
+  display: none;
+}
+
+@media (max-width: 1279px) {
+  .navbar {
+    padding: 0;
+    z-index: 9997;
+  }
+
+  .navbar ul {
+    display: none;
+    position: absolute;
+    inset: 55px 15px 15px 15px;
+    padding: 10px 0;
+    margin: 0;
+    border-radius: 10px;
+    background-color: #fff; /* Update color value here */
+    overflow-y: auto;
+    transition: 0.3s;
+    z-index: 9998;
+  }
+
+  .navbar a,
+  .navbar a:focus {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    font-family:"Times New Roman",sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: #333; /* Update color value here */
+    white-space: nowrap;
+    transition: 0.3s;
+  }
+
+  .navbar a i,
+  .navbar a:focus i {
+    font-size: 12px;
+    line-height: 0;
+    margin-left: 5px;
+  }
+
+  .navbar a:hover,
+  .navbar .active,
+  .navbar .active:focus,
+  .navbar li:hover > a {
+    color: #333; /* Update color value here */
+  }
+
+  .mobile-nav-toggle {
+    display: inline-block;
+    color: #777; /* Update color value here */
+    font-size: 28px;
+    cursor: pointer;
+    line-height: 0;
+    transition: 0.5s;
+  }
+
+  .mobile-nav-toggle.bi-x {
+    color: #000; /* Update color value here */
+  }
+
+  .mobile-nav-active {
+    overflow: hidden;
+  }
+
+  .mobile-nav-active .mobile-nav-toggle {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 9999;
+    color: #fff; /* Update color value here */
+  }
+
+  .mobile-nav-active .navbar {
+    position: fixed;
+    overflow: hidden;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6); /* Update RGBA value here */
+    transition: 0.3s;
+  }
+
+  .mobile-nav-active .navbar > ul {
+    display: block;
+  }
 }
 
 
-.navbar {
-  position: fixed;
-  top: 0;
-  height: 70px;
-  background-color: #ffffff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.navbar-logo img {
+.header-logo img {
   height: 60px;
   width: 60px;
 }
 
-.navbar-links ul {
+.header-links ul {
   display: flex;
   list-style: none;
   margin: 0;
@@ -33,40 +171,25 @@
   align-items: center;
 }
 
-.navbar-links li:not(:last-child) {
+.header-links li:not(:last-child) {
   margin-right: 15px;
 }
 
-.navbar-links li:nth-last-child(2) {
-  margin-right: auto;
-}
-
-.navbar-links a {
+.header-links a {
   color: black;
   text-decoration: none;
   transition: color 0.3s ease-in-out;
 }
 
-.navbar-links a:hover {
+.header-links a:hover {
   color: #481088;
 }
 
-.navbar-toggle {
+.header-toggle {
   display: none;
   cursor: pointer;
 }
 
-.toggle-icon {
-  width: 30px;
-  height: 4px;
-  background-color: #000000;
-  margin: 6px 0;
-  transition: background-color 0.3s ease-in-out;
-}
-
-.navbar-open .toggle-icon {
-  background-color: transparent;
-}
 
 .signup-btn {
   display: inline-flex;
@@ -85,83 +208,51 @@
   color: #000000;
 }
 
-.navbar-links li:last-child {
-  margin-left: 15px;
-}
-
 @media (max-width: 768px) {
-  .navbar {
+  .header {
     padding: 10px;
+    position: fixed;
   }
 
-  .navbar-links {
+  .header-links {
     display: none;
   }
 
-  .navbar-toggle {
-    display: block;
-  }
-
-  .navbar-toggle .toggle-icon {
-    position: relative;
-    transform: rotate(0deg);
-    transition: transform 0.3s ease-in-out;
-    cursor: pointer;
-  }
-
-  .navbar-toggle .toggle-icon span {
-    display: block;
-    position: absolute;
-    height: 4px;
-    width: 100%;
-    background: #333333;
-    opacity: 1;
-    left: 0;
-    transform: rotate(0deg);
-    transition: transform 0.3s ease-in-out;
-  }
-
-  .navbar-toggle .toggle-icon span:nth-child(1) {
-    top: 0px;
-  }
-
-  .navbar-toggle .toggle-icon span:nth-child(2),
-  .navbar-toggle .toggle-icon span:nth-child(3) {
-    top: 10px;
-  }
-
-  .navbar-toggle .toggle-icon span:nth-child(4) {
-    top: 20px;
-  }
-
-  .navbar-open .navbar-links {
+  .header-toggle {
     display: flex;
-    flex-direction: column;
-    background-color: #ffffff;
+    justify-content: center;
+    align-items: center;
+  }
+  .header-links.open {
+    display: block !important;
     position: absolute;
-    top: 60px;
-    left: 0;
+    top: 70px;
+    left:0;
     right: 0;
+    background-color: #ffffff;
     padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
-
-  .navbar-open .navbar-links ul {
+  .header-links.open ul {
     flex-direction: column;
+    align-items: center;
   }
 
-  .navbar-open .navbar-links li {
-    margin-left: 0;
-    margin-bottom: 10px;
-  }
+  .header-links.open li {
+    border-bottom: 1px solid #cccccc;
+    margin-bottom: 10px;  }
 
-  .navbar-open .navbar-links a {
+  .header-links.open a {
     color: black;
     text-decoration: none;
     transition: color 0.3s ease-in-out;
   }
 
-  .navbar-open .navbar-links a:hover {
+  .header-links.open a:hover {
     color: #481088;
+  }
+  .signup-btn {
+    color: black;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
   }
 }

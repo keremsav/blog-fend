@@ -8,6 +8,8 @@ import {Router} from "@angular/router";
   styleUrls: ['./recent-blogs.component.css']
 })
 export class RecentBlogsComponent implements OnInit {
+  backgroundImage = 'assets/background.jpeg';
+
   recentBlogs: any[] = [];
   leftBlogRows: any[] = [];
   rightBlogRows : any[] = [];

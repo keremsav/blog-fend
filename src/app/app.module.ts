@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
-
 import { AppComponent } from './app.component';
 import { BlogListComponent } from './blog/blog-list/blog-list.component';
 import { BlogDetailComponent } from './blog/blog-detail/blog-detail.component';
@@ -26,7 +25,9 @@ import { RecentBlogsComponent } from './blog/recent-blogs/recent-blogs.component
 import {MatCardModule} from "@angular/material/card";
 import { HomeComponent } from './home/home.component';
 import { AllBlogsComponent } from './blog/all-blogs/all-blogs.component';
-
+import {CdkListbox} from "@angular/cdk/listbox";
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -45,19 +46,22 @@ import { AllBlogsComponent } from './blog/all-blogs/all-blogs.component';
     HomeComponent,
     AllBlogsComponent
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    FormsModule,
-    BrowserAnimationsModule,
-    MatButtonModule,
-    RouterLink,
-    MatToolbarModule,
-    MatIconModule,
-    MatInputModule,
-    MatCardModule,
-    AppRoutingModule
-  ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        FormsModule,
+        BrowserAnimationsModule,
+        MatButtonModule,
+        RouterLink,
+        MatToolbarModule,
+        MatIconModule,
+        MatInputModule,
+        MatCardModule,
+        AppRoutingModule,
+        CdkListbox,
+        FontAwesomeModule,
+        NgbModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
