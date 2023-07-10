@@ -50,7 +50,7 @@ export class RecentBlogsComponent implements OnInit {
   }
 
   truncateContent(content: string): string {
-    const maxLength = 25009; // İstenilen maksimum karakter sayısı için uygun bir değer verin
+    const maxLength = 250; // İstenilen maksimum karakter sayısı için uygun bir değer verin
     if (content.length > maxLength) {
       return content.slice(0, maxLength) + '...';
     } else {

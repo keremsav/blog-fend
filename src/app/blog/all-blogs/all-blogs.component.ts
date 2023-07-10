@@ -37,7 +37,8 @@ export class AllBlogsComponent {
           // Format the date as desired
           const createdAt = new Date(blog.createdAt);
           const formattedDate = `${createdAt.getDate()} ${createdAt.toLocaleString('default', { month: 'long' })} ${createdAt.getFullYear()}`;
-          return { ...blog, formattedDate };
+          const truncatedContent = this.truncateContent(blog.content);
+          return { ...blog, formattedDate,truncatedContent};
         });
         console.log(this.blogs);
         this.splitBlogsIntoRows();
@@ -76,6 +77,16 @@ export class AllBlogsComponent {
       this.currentPage++;
       this.fetchPosts();
     }
+  }
+
+  truncateContent(content: string): string {
+    const maxLength = 250; // İstenilen maksimum karakter sayısı için uygun bir değer verin
+    if (content.length > maxLength) {
+      return content.slice(0, maxLength) + '...';
+    } else {
+      return content;
+    }
+
   }
 
 

@@ -6,14 +6,15 @@ import {AllBlogsComponent} from "./blog/all-blogs/all-blogs.component";
 import {BlogDetailComponent} from "./blog/blog-detail/blog-detail.component";
 
 import {HomeComponent} from "./home/home.component";
-import {BlogService} from "./services/blog.service";
+import {AboutUsComponent} from "./about-us/about-us.component";
 
 const routes: Routes = [
   { path: '', component : HomeComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'login', component: SignInComponent},
   { path: 'blogs', component: AllBlogsComponent},
-  { path: 'blog/:id', component: BlogDetailComponent}
+  { path: 'blog/:id', component: BlogDetailComponent},
+  {path: 'about-us',component: AboutUsComponent}
 
   // Add more routes as needed
 ];
