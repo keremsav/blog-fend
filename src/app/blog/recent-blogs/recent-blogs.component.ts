@@ -26,7 +26,8 @@ export class RecentBlogsComponent implements OnInit {
         this.recentBlogs = response.posts.map((blog: any) => {
           const createdAt = new Date(blog.createdAt);
           const formattedDate = `${createdAt.toLocaleString('default', { month: 'long' })} ${createdAt.getDate()}, ${createdAt.getFullYear()}`;
-          return { ...blog, formattedDate };
+          const truncatedContent = this.truncateContent(blog.content);
+          return { ...blog, formattedDate,truncatedContent };
         });
         this.splitBlogRows();
       },
@@ -46,6 +47,16 @@ export class RecentBlogsComponent implements OnInit {
   navigateToBlog(blogId: number): void {
     // Blogun özel sayfasına yönlendir
     this.router.navigate(['/blog', blogId]);
+  }
+
+  truncateContent(content: string): string {
+    const maxLength = 25009; // İstenilen maksimum karakter sayısı için uygun bir değer verin
+    if (content.length > maxLength) {
+      return content.slice(0, maxLength) + '...';
+    } else {
+      return content;
+    }
+
   }
 }
 

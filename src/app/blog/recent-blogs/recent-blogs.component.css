@@ -2,7 +2,7 @@
   font-family: "Times New Roman", sans-serif;
 }
 .welcome {
-  margin-top : 70px;
+  margin-top : 120px;
   width: 100%;
 }
 
@@ -138,7 +138,71 @@ h3 {
 .date::before {
   content: " ";
 }
-.carousel-caption h3 {
-  -webkit-text-stroke: 0.8px black;
-  text-stroke: 1px black;
+
+.picsum-img-wrapper img {
+  filter: brightness(0.8); /* Adjust the value as needed to make it darker */
+  aspect-ratio: 16 / 9;
+  background-size: cover;
+  max-height:500px;
+}
+.carousel-caption {
+  padding: 10px;
+  margin-bottom: 50px;
+  font-family: "Times New Roman",sans-serif;
+  position: absolute;
+  text-align: start;
+  bottom: 0;
+  left: 5%;
+  width: 30%; /* Yarısına kadar kaplaması için genişlik ayarını yüzde olarak belirleyin */
+  color: white;
+}
+
+.carousel-caption .blog-details {
+  text-align: left;
+}
+
+.carousel-caption h3,
+.carousel-caption p {
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 992px) {
+  .carousel-caption {
+    width: 30%;
+    flex-grow: 1;
+  }
+}
+
+@media (max-width: 991px) {
+  .carousel-caption {
+    width: 100%;
+    flex-grow: 0;
+  }
+
+  .carousel-caption .blog-details {
+    display: none;
+  }
+  .carousel-caption p {
+    margin-left: 10px;
+  }
+}
+
+@media (max-width: 575px) {
+  .carousel-caption {
+    width: 100%;
+    flex-grow: 0;
+  }
+
+  .carousel-caption .blog-details {
+    display: none;
+  }
+  .carousel-caption p {
+    display: none;
+    margin: 0;
+    padding: 0;
+  }
+  .carousel-caption h3 {
+    font-size: 18px;
+  }
 }

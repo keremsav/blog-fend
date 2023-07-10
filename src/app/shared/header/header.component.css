@@ -1,162 +1,14 @@
 /* CSS styles for the header component */
 .header {
-  height: 90px;
+  height: 70px;
   transition: all 0.5s;
   z-index: 997;
   background: #f2f2f2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Times New Roman",sans-serif;
 }
-/*--------------------------------------------------------------
-# Desktop Navigation
---------------------------------------------------------------*/
-@media (min-width: 1280px) {
-  .navbar {
-    padding: 0;
-  }
-
-  .navbar ul {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    list-style: none;
-    align-items: center;
-  }
-
-  .navbar li {
-    position: relative;
-  }
-
-  .navbar a,
-  .navbar a:focus {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 0 10px 30px;
-    font-family:"Times New Roman",sans-serif;
-    font-size: 16px;
-    font-weight: 500;
-    color: rgba(0, 0, 0, 1); /* Update RGBA value here */
-    white-space: nowrap;
-    transition: 0.3s;
-  }
-
-  .navbar a i,
-  .navbar a:focus i {
-    font-size: 12px;
-    line-height: 0;
-    margin-left: 5px;
-  }
-
-  .navbar a:hover,
-  .navbar .active,
-  .navbar .active:focus,
-  .navbar li:hover > a {
-    color: #000; /* Update color value here */
-  }
-
-  .navbar .getstarted,
-  .navbar .getstarted:focus {
-    background: #333; /* Update color value here */
-    padding: 8px 20px;
-    margin-left: 30px;
-    border-radius: 4px;
-    color: #fff; /* Update color value here */
-  }
-
-  .navbar .getstarted:hover,
-  .navbar .getstarted:focus:hover {
-    color: #fff; /* Update color value here */
-    background: rgba(51, 51, 51, 0.8); /* Update RGBA value here */
-  }
-}
-.mobile-nav-toggle {
-  display: none;
-}
-
-@media (max-width: 1279px) {
-  .navbar {
-    padding: 0;
-    z-index: 9997;
-  }
-
-  .navbar ul {
-    display: none;
-    position: absolute;
-    inset: 55px 15px 15px 15px;
-    padding: 10px 0;
-    margin: 0;
-    border-radius: 10px;
-    background-color: #fff; /* Update color value here */
-    overflow-y: auto;
-    transition: 0.3s;
-    z-index: 9998;
-  }
-
-  .navbar a,
-  .navbar a:focus {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
-    font-family:"Times New Roman",sans-serif;
-    font-size: 15px;
-    font-weight: 600;
-    color: #333; /* Update color value here */
-    white-space: nowrap;
-    transition: 0.3s;
-  }
-
-  .navbar a i,
-  .navbar a:focus i {
-    font-size: 12px;
-    line-height: 0;
-    margin-left: 5px;
-  }
-
-  .navbar a:hover,
-  .navbar .active,
-  .navbar .active:focus,
-  .navbar li:hover > a {
-    color: #333; /* Update color value here */
-  }
-
-  .mobile-nav-toggle {
-    display: inline-block;
-    color: #777; /* Update color value here */
-    font-size: 28px;
-    cursor: pointer;
-    line-height: 0;
-    transition: 0.5s;
-  }
-
-  .mobile-nav-toggle.bi-x {
-    color: #000; /* Update color value here */
-  }
-
-  .mobile-nav-active {
-    overflow: hidden;
-  }
-
-  .mobile-nav-active .mobile-nav-toggle {
-    position: fixed;
-    top: 15px;
-    right: 15px;
-    z-index: 9999;
-    color: #fff; /* Update color value here */
-  }
-
-  .mobile-nav-active .navbar {
-    position: fixed;
-    overflow: hidden;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.6); /* Update RGBA value here */
-    transition: 0.3s;
-  }
-
-  .mobile-nav-active .navbar > ul {
-    display: block;
-  }
-}
-
 
 .header-logo img {
   height: 60px;
@@ -215,22 +67,35 @@
   }
 
   .header-links {
-    display: none;
+    margin-left: auto;
+    max-height: 0; /* Ekleyin */
+    overflow: hidden; /* Ekleyin */
+    transition: opacity 0.3s ease-in-out, visibility 0s linear 0.3s, transform 0.3s ease-in-out;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-100px);
   }
 
   .header-toggle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: block;
+    align-items: end;
   }
   .header-links.open {
-    display: block !important;
+
     position: absolute;
+    max-height: 400px;
     top: 70px;
     left:0;
     right: 0;
-    background-color: #ffffff;
+    background: #f2f2f2;
+    visibility: visible;
+    opacity: 1;
     padding: 20px;
+
+    transform: translateY(0);
+    transition-delay: 0s, 0s,0s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2),
+    0 -2px 4px rgba(0, 0, 0, 0);
   }
   .header-links.open ul {
     flex-direction: column;

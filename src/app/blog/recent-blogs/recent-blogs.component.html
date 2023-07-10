@@ -1,20 +1,23 @@
 <section class="welcome">
-  <ngb-carousel >
-    <ng-template ngbSlide  *ngFor="let blog of recentBlogs">
-      <div class="picsum-img-wrapper" (click)="navigateToBlog(blog._id)">
-        <img class="w-100" src="{{blog.image}}" alt="Random first slide" style="background-size: cover;height: 600px; z-index: 3">
-      </div>
-      <div class="carousel-caption img-bg-inner">
-        <h3>{{blog.title}}</h3>
-      </div>
-    </ng-template>
-  </ngb-carousel>
+  <div class="container">
+    <ngb-carousel>
+      <ng-template ngbSlide  *ngFor="let blog of recentBlogs">
+        <div class="picsum-img-wrapper" (click)="navigateToBlog(blog._id)">
+          <img class="w-100" src="{{blog.image}}" alt="Slides">
+        </div>
+        <div class="carousel-caption img-bg-inner">
+          <h3>{{blog.title}}</h3>
+          <p>{{blog.truncatedContent}}</p>
+        </div>
+      </ng-template>
+    </ngb-carousel>
+  </div>
 </section>
 <div class="container">
   <div class="row">
     <section id="recent-blog" class="recent-blog">
       <div class="container">
-        <h3 style="padding-top: 20px">Recent Blog Posts</h3>
+        <h3 style="padding-top: 50px">Recent Blog Posts</h3>
       </div>
       <div class="row">
         <div class="col-md-6">
