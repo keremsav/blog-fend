@@ -29,6 +29,7 @@ import {CdkListbox} from "@angular/cdk/listbox";
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { AboutUsComponent } from './about-us/about-us.component';
     RecentBlogsComponent,
     HomeComponent,
     AllBlogsComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    ContactUsComponent
   ],
     imports: [
         BrowserModule,

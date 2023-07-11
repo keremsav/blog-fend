@@ -7,6 +7,7 @@ import {BlogDetailComponent} from "./blog/blog-detail/blog-detail.component";
 
 import {HomeComponent} from "./home/home.component";
 import {AboutUsComponent} from "./about-us/about-us.component";
+import {ContactUsComponent} from "./contact-us/contact-us.component";
 
 const routes: Routes = [
   { path: '', component : HomeComponent },
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'login', component: SignInComponent},
   { path: 'blogs', component: AllBlogsComponent},
   { path: 'blog/:id', component: BlogDetailComponent},
-  {path: 'about-us',component: AboutUsComponent}
+  {path: 'about-us',component: AboutUsComponent},
+  {path: 'contact-us', component: ContactUsComponent}
 
   // Add more routes as needed
 ];

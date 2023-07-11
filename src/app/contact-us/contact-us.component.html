@@ -1,0 +1,63 @@
+<app-header></app-header>
+<div class="container mt-5 pt-5 mb-5">
+  <div class="row text-center mb-5">
+    <h1>Contact Us</h1>
+  </div>
+  <div class="row text-center">
+    <div class="col-md-4 col-sm-12 mt-2">
+      <mat-icon>location_on</mat-icon>
+      <h2 class="mt-2 mb-2">ADDRESS</h2>
+      <p>Cihannüma Mah. Beşiktaş/Istanbul</p>
+    </div>
+    <div class="col-md-4 col-sm-12 middle-contact mt-2">
+      <mat-icon>contacts</mat-icon>
+      <h2 class="mt-2 mb-2">PHONE NUMBER</h2>
+      <p><a class="text-decoration-none text-black" href="tel:+90 538 596 0900">+90 538 596 0900</a></p>
+    </div>
+    <div class="col-md-4 col-sm-12 mt-2">
+      <mat-icon>mail</mat-icon>
+      <h2 class="mt-2 mb-2">EMAIL</h2>
+      <p><a class="text-decoration-none text-black" href="mailto:info@example.com">info@example.com</a></p>
+    </div>
+  </div>
+  <div class="row">
+    <form class="form-container mt-5">
+      <mat-card>
+        <mat-card-content>
+          <div class="row">
+            <div class="col-md-6">
+              <mat-form-field class="w-100">
+                <mat-label>Your Name</mat-label>
+                <input matInput>
+              </mat-form-field>
+            </div>
+            <div class="col-md-6">
+              <mat-form-field class="w-100">
+                <mat-label>Your Email</mat-label>
+                <input matInput>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <mat-form-field class="w-100">
+              <mat-label>Subject</mat-label>
+              <input matInput>
+            </mat-form-field>
+          </div>
+          <div class="row">
+            <mat-form-field style="height: 200px" class="w-100">
+              <mat-label>Message</mat-label>
+              <input matInput>
+            </mat-form-field>
+          </div>
+        </mat-card-content>
+        <mat-card-actions class="d-flez justify-content-center mb-3">
+          <div class="row">
+            <button mat-raised-button >Send It</button>
+          </div>
+        </mat-card-actions>
+      </mat-card>
+    </form>
+  </div>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,30 @@
+h1,h2,h3,p {
+  font-family: "Times New Roman",sans-serif;
+}
+
+h1 {
+  font-size: 60px;
+}
+h2 {
+  font-size: 24px;
+}
+
+.middle-contact {
+  border-right: 1px solid rgba(0,0,0,0.2);
+  border-left: 1px solid rgba(0,0,0,0.2);
+
+}
+
+.mat-icon {
+  font-size: 48px;
+  height: 48px;
+  width: 48px;
+}
+
+@media (max-width: 768px) {
+  .middle-contact {
+    border-right: none;
+    border-left: none;
+  }
+
+}
