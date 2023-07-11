@@ -8,7 +8,6 @@ import { BlogListComponent } from './blog/blog-list/blog-list.component';
 import { BlogDetailComponent } from './blog/blog-detail/blog-detail.component';
 import { SignInComponent } from './auth/sign-in/sign-in.component';
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
-import { WorkspaceComponent } from './admin/workspace/workspace.component';
 import {FormsModule} from "@angular/forms";
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
@@ -30,6 +29,12 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import { PostManagmentComponent } from './admin-panel/post-managment/post-managment.component';
+import { UserManagmentComponent } from './admin-panel/user-managment/user-managment.component';
+import { CategoriesManagmentComponent } from './admin-panel/categories-managment/categories-managment.component';
+import { CommentsManagmentComponent } from './admin-panel/comments-managment/comments-managment.component';
+import { ContactManagmentComponent } from './admin-panel/contact-managment/contact-managment.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +43,6 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     BlogDetailComponent,
     SignInComponent,
     SignUpComponent,
-    WorkspaceComponent,
     HeaderComponent,
     FooterComponent,
     BlogItemComponent,
@@ -48,7 +52,13 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     HomeComponent,
     AllBlogsComponent,
     AboutUsComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    AdminPanelComponent,
+    PostManagmentComponent,
+    UserManagmentComponent,
+    CategoriesManagmentComponent,
+    CommentsManagmentComponent,
+    ContactManagmentComponent,
   ],
     imports: [
         BrowserModule,
@@ -69,4 +79,6 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+}

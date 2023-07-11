@@ -8,6 +8,8 @@ import {BlogDetailComponent} from "./blog/blog-detail/blog-detail.component";
 import {HomeComponent} from "./home/home.component";
 import {AboutUsComponent} from "./about-us/about-us.component";
 import {ContactUsComponent} from "./contact-us/contact-us.component";
+import {AdminPanelComponent} from "./admin-panel/admin-panel.component";
+import {AdminPanelGuard} from "./admin-panel/admin-panel.guard";
 
 const routes: Routes = [
   { path: '', component : HomeComponent },
@@ -16,7 +18,8 @@ const routes: Routes = [
   { path: 'blogs', component: AllBlogsComponent},
   { path: 'blog/:id', component: BlogDetailComponent},
   {path: 'about-us',component: AboutUsComponent},
-  {path: 'contact-us', component: ContactUsComponent}
+  {path: 'contact-us', component: ContactUsComponent},
+  {path: 'panel', component: AdminPanelComponent , canActivate: [AdminPanelGuard]}
 
   // Add more routes as needed
 ];

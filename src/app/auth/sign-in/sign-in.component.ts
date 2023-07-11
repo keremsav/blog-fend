@@ -19,7 +19,7 @@ export class SignInComponent {
     this.authService.signIn(this.email, this.password).subscribe(
       response => {
         if (response) {
-          this.router.navigate(['/']);
+          this.router.navigate(['/panel']);
         } else {
           // User is not valid, display error message
           this.errorMessage = 'Invalid credentials. Please try again.';
