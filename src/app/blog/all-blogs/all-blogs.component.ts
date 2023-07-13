@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 
 export class AllBlogsComponent {
   blogs : any[] = [];
+  latestBlogs : any [] = [];
   blogRows: any[] = [
   ];
   posts : any [] = [];
@@ -32,7 +33,7 @@ export class AllBlogsComponent {
   fetchPosts(): void {
     this.blogService.getAllPosts(this.currentPage, this.pageSize,-1).subscribe(
       (response: any) => {
-        this.totalPages = response.totalPages ;
+        this.totalPages = response.totalPages;
         this.blogs = response.posts.map((blog : any) => {
           // Format the date as desired
           const createdAt = new Date(blog.createdAt);
@@ -40,6 +41,9 @@ export class AllBlogsComponent {
           const truncatedContent = this.truncateContent(blog.content);
           return { ...blog, formattedDate,truncatedContent};
         });
+        if(this.currentPage === 1) {
+          this.latestBlogs = this.blogs;
+        }
         console.log(this.blogs);
         this.splitBlogsIntoRows();
       },

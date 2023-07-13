@@ -3,7 +3,7 @@
     <ngb-carousel>
       <ng-template ngbSlide  *ngFor="let blog of recentBlogs">
         <div class="picsum-img-wrapper" (click)="navigateToBlog(blog._id)">
-          <img class="w-100" src="{{blog.image}}" alt="Slides">
+          <img class="w-100 " src="{{blog.image}}" alt="Slides">
         </div>
         <div class="carousel-caption img-bg-inner">
           <h3>{{blog.title}}</h3>

@@ -14,7 +14,7 @@
               <div class="blog-title lh-base">{{blog.title}}</div>
               <div class="blog-content" *ngFor="let paragraph of paragraphs; let i = index">
                 <p [ngClass]="{'first-letter': i === 0}">{{paragraph}}</p>
-                <img class="img-fluid" *ngIf="i === 0" src="{{blog.image}}" alt="Image">
+                <img style="max-height: 400px" class="img-fluid w-100" *ngIf="i === 0" src="{{blog.image}}" alt="Image">
               </div>
             </div>
           </div>
