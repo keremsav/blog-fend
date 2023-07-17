@@ -9,6 +9,8 @@ export class BlogService {
   private apiPostUrl: string = 'http://localhost:8000/api/posts'; // Backend API'nin URL'i
   private apiCommentUrl: string = 'http://localhost:8000/api/comments'; // Backend API'nin URL'i
 
+  private apiContactUrl: string = 'http://localhost:8000/api/contact'; // Backend API'nin URL'i
+
 
   constructor(private http: HttpClient) { }
 
@@ -79,5 +81,10 @@ export class BlogService {
   deleteComment(commentId: string): Observable<any> {
     return this.http.delete<any>(`${this.apiCommentUrl}/${commentId}`);
   }
+
+  createContact(name: string,subject:string,email:string,message:string): Observable<any> {
+    return this.http.post<any>(`${this.apiContactUrl}/`,{name,subject,email,message} )
+  }
+
 }
 

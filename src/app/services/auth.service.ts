@@ -7,21 +7,12 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
   private apiUrl: string = 'http://localhost:8000/api';
-  private getCookie(name: string): string {
-    const value = '; ' + document.cookie;
-    const parts = value.split('; ' + name + '=');
-    if (parts.length === 2) {
-      return parts.pop()?.split(';').shift() || '';
-    }
-    return '';
-  }
-
   constructor(private http: HttpClient) {
   }
 
   // Kullanıcının admin olup olmadığını kontrol eden fonksiyon
   isAdmin(): boolean {
-    let cookie = this.getCookie('loggedIn');
+    let cookie = window.localStorage.getItem('loggedIn');
     if(cookie === 'true') {
       return true;
     } else {

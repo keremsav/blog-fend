@@ -13,8 +13,8 @@ import {AdminPanelGuard} from "./admin-panel/admin-panel.guard";
 
 const routes: Routes = [
   { path: '', component : HomeComponent },
-  { path: 'sign-up', component: SignUpComponent },
-  { path: 'login', component: SignInComponent},
+  { path: 'panel/register', component: SignUpComponent },
+  { path: 'panel/login', component: SignInComponent},
   { path: 'blogs', component: AllBlogsComponent},
   { path: 'blog/:id', component: BlogDetailComponent},
   {path: 'about-us',component: AboutUsComponent},

@@ -19,6 +19,7 @@ export class SignInComponent {
     this.authService.signIn(this.email, this.password).subscribe(
       response => {
         if (response) {
+          window.localStorage.setItem('loggedIn','true');
           this.router.navigate(['/panel']);
         } else {
           // User is not valid, display error message
