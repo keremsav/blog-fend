@@ -1,1 +1,25 @@
-<p>admin-panel works!</p>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav [mode]="isMobile ? 'over' : 'side'" [opened]="!isMobile">
+    <div class="logo-container justify-content-center">
+      <a href="/panel"><img  src="./assets/wixlogo.jpg" alt="Logo"></a>
+    </div>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/panel/users" ><mat-icon>person</mat-icon>Users</a>
+      <a mat-list-item routerLink="/panel/posts"><mat-icon>post_add</mat-icon>Posts</a>
+      <a mat-list-item routerLink="/panel/comments"><mat-icon>comment</mat-icon>Comments</a>
+      <a mat-list-item routerLink="/panel/contacts"><mat-icon>mail</mat-icon>Contacts</a>
+      <a mat-list-item routerLink="/panel/categories"><mat-icon>category</mat-icon>Categories</a>
+      <a mat-list-item style="margin-top: 350px" routerLink="/panel/logout"><mat-icon>exit_to_app</mat-icon>Logout</a>
+
+
+      <!-- Admore navigation links here -->
+    </mat-nav-list>
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <button *ngIf="isMobile" mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

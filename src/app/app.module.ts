@@ -37,6 +37,8 @@ import { CategoriesManagmentComponent } from './admin-panel/categories-managment
 import { CommentsManagmentComponent } from './admin-panel/comments-managment/comments-managment.component';
 import { ContactManagmentComponent } from './admin-panel/contact-managment/contact-managment.component';
 import { BlogCategoryComponent } from './blog/blog-category/blog-category.component';
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatListModule} from "@angular/material/list";
 
 @NgModule({
   declarations: [
@@ -63,24 +65,26 @@ import { BlogCategoryComponent } from './blog/blog-category/blog-category.compon
     ContactManagmentComponent,
     BlogCategoryComponent,
   ],
-    imports: [
-        BrowserModule,
-        HttpClientModule,
-        FormsModule,
-        BrowserAnimationsModule,
-        MatButtonModule,
-        RouterLink,
-        MatToolbarModule,
-        MatIconModule,
-        MatInputModule,
-        MatCardModule,
-        AppRoutingModule,
-        CdkListbox,
-        FontAwesomeModule,
-        NgbModule,
-        ReactiveFormsModule,
-        MatSnackBarModule
-    ],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    RouterLink,
+    MatToolbarModule,
+    MatIconModule,
+    MatInputModule,
+    MatCardModule,
+    AppRoutingModule,
+    CdkListbox,
+    FontAwesomeModule,
+    NgbModule,
+    ReactiveFormsModule,
+    MatSnackBarModule,
+    MatSidenavModule,
+    MatListModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

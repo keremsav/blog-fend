@@ -11,6 +11,11 @@ import {ContactUsComponent} from "./contact-us/contact-us.component";
 import {AdminPanelComponent} from "./admin-panel/admin-panel.component";
 import {AdminPanelGuard} from "./admin-panel/admin-panel.guard";
 import {BlogCategoryComponent} from "./blog/blog-category/blog-category.component";
+import {UserManagmentComponent} from "./admin-panel/user-managment/user-managment.component";
+import {PostManagmentComponent} from "./admin-panel/post-managment/post-managment.component";
+import {ContactManagmentComponent} from "./admin-panel/contact-managment/contact-managment.component";
+import {CommentsManagmentComponent} from "./admin-panel/comments-managment/comments-managment.component";
+import {CategoriesManagmentComponent} from "./admin-panel/categories-managment/categories-managment.component";
 
 const routes: Routes = [
   { path: '', component : HomeComponent },
@@ -21,7 +26,15 @@ const routes: Routes = [
   {path: 'about-us',component: AboutUsComponent},
   {path: 'contact-us', component: ContactUsComponent},
   {path: 'panel', component: AdminPanelComponent , canActivate: [AdminPanelGuard]},
-  {path: 'category/:id' ,component: BlogCategoryComponent}
+  {path: 'category/:id' ,component: BlogCategoryComponent},
+  {path:'panel/users',component: UserManagmentComponent},
+  {path:'panel/posts',component: PostManagmentComponent},
+  {path:'panel/contacts',component: ContactManagmentComponent},
+  {path:'panel/comments',component: CommentsManagmentComponent},
+  {path:'panel/categories',component: CategoriesManagmentComponent},
+
+
+
 
   // Add more routes as needed
 ];

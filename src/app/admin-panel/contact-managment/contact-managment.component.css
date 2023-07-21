@@ -1,0 +1,43 @@
+/* styles.scss */
+mat-sidenav-container {
+  height: 100vh;
+}
+
+mat-sidenav {
+  width: 250px;
+  background-color: #F9F9F9;
+  height: 100%;
+}
+
+/* styles.scss */
+.logo-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 16px;
+}
+
+.logo-container img{
+  height: 50px;
+  width: 50px;
+}
+
+/* styles.scss */
+mat-list-item {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+}
+
+mat-icon {
+  margin-right: 8px; /* Add some spacing between the icon and the text */
+  font-size: 20px; /* Adjust the icon size as per your preference */
+  min-width: 24px; /* Set a minimum width for the icon to prevent resizing */
+}
+/* app.component.scss */
+/* Optional: Customize the appearance of the toggle button */
+button[mat-icon-button] {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+}
