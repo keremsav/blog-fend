@@ -10,9 +10,15 @@ export class BlogService {
   private apiCommentUrl: string = 'http://localhost:8000/api/comments'; // Backend API'nin URL'i
 
   private apiContactUrl: string = 'http://localhost:8000/api/contact'; // Backend API'nin URL'i
+  private apiCategoryUrl: string = 'http://localhost:8000/api/categories'; // Backend API'nin URL'i
+
 
 
   constructor(private http: HttpClient) { }
+
+  getCategories() : Observable<any> {
+    return this.http.get<any>(`${this.apiCategoryUrl}`)
+  }
 
   createPost(title: string, content: string, tags: string[]): Observable<any> {
     const body = {
@@ -32,6 +38,18 @@ export class BlogService {
     };
     return this.http.get<any[]>(`${this.apiPostUrl}`, { params });
   }
+
+  getAllPostsByCategory(page: number, limit: number, date: number, categoryId: string): Observable<any[]> {
+    const params = {
+      page: page.toString(),
+      limit: limit.toString(),
+      date : date.toString(),
+      categoryId : categoryId.toString()
+    };
+    return this.http.get<any[]>(`${this.apiPostUrl}/category`, { params });
+  }
+
+
 
 
   getPostById(id: string): Observable<any> {

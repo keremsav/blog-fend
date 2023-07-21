@@ -20,11 +20,11 @@
         <h3 style="padding-top: 50px">Recent Blog Posts</h3>
       </div>
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6 col-sm-12">
           <div class="recent-blogs">
             <div class="blog-container">
               <div class="blog-details" *ngFor="let blog of leftBlogRows" (click)="navigateToBlog(blog._id)">
-                <img src="{{blog.image}}" alt="Blog Image">
+                <img class="shadow rounded" src="{{blog.image}}" alt="Blog Image">
                 <div class="author-date">
                   <p class="author">{{blog.author}}</p>
                   <p class="date">{{blog.formattedDate}}</p>
@@ -38,16 +38,16 @@
             </div>
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 col-sm-12">
           <div class="row recent-blogs-right" *ngFor="let rightblogs of rightBlogRows" (click)="navigateToBlog(rightblogs._id)">
             <div class="col-md-6">
               <div class="blog-container">
                 <div class="blog-details">
-                  <img src="{{rightblogs.image}}" alt="Blog Image" class="right-image">
+                  <img src="{{rightblogs.image}}" alt="Blog Image" class="shadow rounded">
                 </div>
               </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 col-sm-12">
               <div class="blog-details">
                 <div class="author-date">
                   <p class="author">{{rightblogs.author}}</p>

@@ -67,7 +67,7 @@
   }
 
   .header-links {
-    margin-left: auto;
+    text-align: center;
     max-height: 0; /* Ekleyin */
     overflow: hidden; /* Ekleyin */
     transition: opacity 0.3s ease-in-out, visibility 0s linear 0.3s, transform 0.3s ease-in-out;
@@ -100,6 +100,7 @@
   .header-links.open ul {
     flex-direction: column;
     align-items: center;
+    text-align: start;
   }
 
   .header-links.open li {
@@ -121,3 +122,31 @@
     transition: color 0.3s ease-in-out;
   }
 }
+
+/* ... Other styles ... */
+
+.category-menu {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  right: 0;
+  background: #f2f2f2;
+  visibility: hidden;
+  opacity: 0;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 -2px 4px rgba(0, 0, 0, 0);
+  display: flex;
+  justify-content: center; /* Center the content horizontally */
+}
+
+.category-list {
+  display: flex;
+  flex-wrap: wrap; /* Allow list items to wrap to the next line if they don't fit horizontally */
+  justify-content: center; /* Center the list items horizontally */
+}
+
+.category-list li:not(:last-child) {
+  margin-right: 10px; /* Add some spacing between list items */
+}
+
+/* ... Other media queries and styles ... */

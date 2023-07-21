@@ -7,7 +7,15 @@
     <ul>
       <li><a href="#">Home</a></li>
       <li><a href="/blogs">Blogs</a></li>
-      <li><a href="#">Categories</a></li>
+      <li (click)="toggleDropdown()">
+        <a class="dropdown-toggle">
+        Categories
+        </a>
+        <ul class="dropdown-menu  justify-content-center" style="flex-direction: column; width: auto" [hidden]="!isDropdownOpen">
+          <li *ngFor="let category of categories"><a href="/category/{{category.id}}" class="dropdown-item justify-content-center">{{category.name}}</a></li>
+          <!-- Add more category list items here -->
+        </ul>
+      </li>
       <li><a href="/about-us">About</a> </li>
       <li><a href="/contact-us">Contact</a></li>
     </ul>

@@ -36,6 +36,7 @@ import { UserManagmentComponent } from './admin-panel/user-managment/user-managm
 import { CategoriesManagmentComponent } from './admin-panel/categories-managment/categories-managment.component';
 import { CommentsManagmentComponent } from './admin-panel/comments-managment/comments-managment.component';
 import { ContactManagmentComponent } from './admin-panel/contact-managment/contact-managment.component';
+import { BlogCategoryComponent } from './blog/blog-category/blog-category.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { ContactManagmentComponent } from './admin-panel/contact-managment/conta
     CategoriesManagmentComponent,
     CommentsManagmentComponent,
     ContactManagmentComponent,
+    BlogCategoryComponent,
   ],
     imports: [
         BrowserModule,
