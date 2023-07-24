@@ -11,10 +11,33 @@ export class BlogService {
 
   private apiContactUrl: string = 'http://localhost:8000/api/contact'; // Backend API'nin URL'i
   private apiCategoryUrl: string = 'http://localhost:8000/api/categories'; // Backend API'nin URL'i
+  private apiUsersUrl: string = 'http://localhost:8000/api/users'; // Backend API'nin URL'i
+
+
 
 
 
   constructor(private http: HttpClient) { }
+
+  getUsers(email:string) : Observable<any> {
+    const params = {
+      email : email
+    };
+    return this.http.get<any>(`${this.apiUsersUrl}`, {params});
+  }
+  deletedUser(userId: string) : Observable<any> {
+    return this.http.delete<any>(`${this.apiUsersUrl}/${userId}`);
+  }
+
+  updateUser(id:string,username:string,email:string,isVerified:boolean,isAdmin:boolean) : Observable<any> {
+    const body = {
+      username : username,
+      email : email,
+      isVerified : isVerified,
+      isAdmin : isAdmin
+    }
+    return this.http.put<any>(`${this.apiUsersUrl}/${id}`,body);
+  }
 
   getCategories() : Observable<any> {
     return this.http.get<any>(`${this.apiCategoryUrl}`)
@@ -98,7 +121,9 @@ export class BlogService {
 
   deleteComment(commentId: string): Observable<any> {
     return this.http.delete<any>(`${this.apiCommentUrl}/${commentId}`);
-  }
+  };
+
+
 
   createContact(name: string,subject:string,email:string,message:string): Observable<any> {
     return this.http.post<any>(`${this.apiContactUrl}/`,{name,subject,email,message} )

@@ -1,0 +1,32 @@
+<h2 mat-dialog-title>Edit User</h2>
+<mat-dialog-content>
+  <form>
+    <mat-form-field>
+      <input matInput placeholder="Username " name="username" value="{{editedUser.username}}" [(ngModel)]="editedUser.username">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Email" name="email" value="{{editedUser.email}}" [(ngModel)]="editedUser.email">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Is Admin</mat-label>
+      <mat-select name="isAdmin" [(ngModel)]="editedUser.isAdmin" [value]="editedUser.isAdmin">
+        <mat-option [value]="true">True</mat-option>
+        <mat-option [value]="false">False</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Is Verified</mat-label>
+      <mat-select name="isVerified" [(ngModel)]="editedUser.isVerified">
+        <mat-option [value]="true">True</mat-option>
+        <mat-option [value]="false">False</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+    <!-- Add more fields as needed -->
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onSave()">Save</button>
+</mat-dialog-actions>

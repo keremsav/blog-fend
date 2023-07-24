@@ -39,6 +39,10 @@ import { ContactManagmentComponent } from './admin-panel/contact-managment/conta
 import { BlogCategoryComponent } from './blog/blog-category/blog-category.component';
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatListModule} from "@angular/material/list";
+import {MatTableModule} from "@angular/material/table";
+import { EditUserDialogComponent } from './admin-panel/user-managment/edit-user-dialog/edit-user-dialog.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatSelectModule} from "@angular/material/select";
 
 @NgModule({
   declarations: [
@@ -64,27 +68,31 @@ import {MatListModule} from "@angular/material/list";
     CommentsManagmentComponent,
     ContactManagmentComponent,
     BlogCategoryComponent,
+    EditUserDialogComponent,
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    FormsModule,
-    BrowserAnimationsModule,
-    MatButtonModule,
-    RouterLink,
-    MatToolbarModule,
-    MatIconModule,
-    MatInputModule,
-    MatCardModule,
-    AppRoutingModule,
-    CdkListbox,
-    FontAwesomeModule,
-    NgbModule,
-    ReactiveFormsModule,
-    MatSnackBarModule,
-    MatSidenavModule,
-    MatListModule
-  ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        FormsModule,
+        BrowserAnimationsModule,
+        MatButtonModule,
+        RouterLink,
+        MatToolbarModule,
+        MatIconModule,
+        MatInputModule,
+        MatCardModule,
+        AppRoutingModule,
+        CdkListbox,
+        FontAwesomeModule,
+        NgbModule,
+        ReactiveFormsModule,
+        MatSnackBarModule,
+        MatSidenavModule,
+        MatListModule,
+        MatTableModule,
+        MatDialogModule,
+        MatSelectModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
