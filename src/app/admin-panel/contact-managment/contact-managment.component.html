@@ -20,6 +20,52 @@
     <button *ngIf="isMobile" mat-icon-button (click)="sidenav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
+    <div class="container">
+      <div class="row d-flex align-items-center">
+        <h1 class="mt-3 mx-3">Contacts</h1>
+        <div class="align-items-center d-flex">
+          <mat-form-field style="width: 300px">
+            <mat-label>Search</mat-label>
+            <input matInput value="example@mail.com" name = 'Search' [(ngModel)]="searchData" (input)="onSearch()">
+            <button matSuffix mat-button (click)="onSearch()"><mat-icon>search</mat-icon></button>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <h2 class="text-center border-bottom">Contact Messages</h2>
+          <mat-card class="contact-item" *ngFor="let contact of pagedContacts" (click)="setSelectedContact(contact)">
+            <mat-card-header>
+              <mat-card-title>{{ contact.email }}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <p><strong>Subject:</strong> {{ contact.subject }}</p>
+              <p>{{ truncateMessage(contact.message, 10) }}</p>
+            </mat-card-content>
+          </mat-card>
+          <mat-paginator [length]="contacts.length" [pageSize]="5"   (page)="onPageChange($event)">
+          </mat-paginator>
+        </div>
 
+        <div class="col-md-8">
+          <!-- Display selected contact information -->
+          <h2 class="text-center border-bottom">Contact Details</h2>
+          <mat-card *ngIf="selectedContact">
+            <mat-card-header>
+            </mat-card-header>
+            <mat-card-content>
+              <p><strong>Email:</strong> {{ selectedContact.email }}</p>
+              <p><strong>Name:</strong> {{ selectedContact.name }}</p>
+              <p><strong>Subject:</strong> {{ selectedContact.subject }}</p>
+              <p><strong>Message:</strong> {{ selectedContact.message }}</p>
+              <!-- Add more contact details as needed -->
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-button (click)="confirmDelete(selectedContact)">DELETE</button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+      </div>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

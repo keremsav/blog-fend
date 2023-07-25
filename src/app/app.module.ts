@@ -43,6 +43,7 @@ import {MatTableModule} from "@angular/material/table";
 import { EditUserDialogComponent } from './admin-panel/user-managment/edit-user-dialog/edit-user-dialog.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatSelectModule} from "@angular/material/select";
+import {MatPaginatorModule} from "@angular/material/paginator";
 
 @NgModule({
   declarations: [
@@ -70,29 +71,30 @@ import {MatSelectModule} from "@angular/material/select";
     BlogCategoryComponent,
     EditUserDialogComponent,
   ],
-    imports: [
-        BrowserModule,
-        HttpClientModule,
-        FormsModule,
-        BrowserAnimationsModule,
-        MatButtonModule,
-        RouterLink,
-        MatToolbarModule,
-        MatIconModule,
-        MatInputModule,
-        MatCardModule,
-        AppRoutingModule,
-        CdkListbox,
-        FontAwesomeModule,
-        NgbModule,
-        ReactiveFormsModule,
-        MatSnackBarModule,
-        MatSidenavModule,
-        MatListModule,
-        MatTableModule,
-        MatDialogModule,
-        MatSelectModule
-    ],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    RouterLink,
+    MatToolbarModule,
+    MatIconModule,
+    MatInputModule,
+    MatCardModule,
+    AppRoutingModule,
+    CdkListbox,
+    FontAwesomeModule,
+    NgbModule,
+    ReactiveFormsModule,
+    MatSnackBarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatTableModule,
+    MatDialogModule,
+    MatSelectModule,
+    MatPaginatorModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

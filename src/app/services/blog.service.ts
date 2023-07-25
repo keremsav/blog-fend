@@ -25,6 +25,15 @@ export class BlogService {
     };
     return this.http.get<any>(`${this.apiUsersUrl}`, {params});
   }
+  getAllContacts(email:string) : Observable<any> {
+    const params = {
+      email:email
+    };
+    return this.http.get<any>(`${this.apiContactUrl}/`,{params});
+  }
+  deleteContact(ContactId: string) : Observable<any> {
+    return this.http.delete<any>(`${this.apiContactUrl}/${ContactId}`);
+  }
   deletedUser(userId: string) : Observable<any> {
     return this.http.delete<any>(`${this.apiUsersUrl}/${userId}`);
   }
@@ -123,6 +132,9 @@ export class BlogService {
     return this.http.delete<any>(`${this.apiCommentUrl}/${commentId}`);
   };
 
+  getSingleContact(id:string) : Observable<any> {
+    return this.http.get<any>(`${this.apiContactUrl}/${id}`);
+  }
 
 
   createContact(name: string,subject:string,email:string,message:string): Observable<any> {

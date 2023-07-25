@@ -41,3 +41,12 @@ button[mat-icon-button] {
   top: 16px;
   left: 16px;
 }
+
+.container {
+  margin-top: 35px;
+}
+
+.contact-item {
+  cursor: pointer;
+  margin-bottom: 20px;
+}

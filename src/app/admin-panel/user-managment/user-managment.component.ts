@@ -3,6 +3,8 @@ import {BreakpointObserver, Breakpoints} from "@angular/cdk/layout";
 import {BlogService} from "../../services/blog.service";
 import {MatDialog} from "@angular/material/dialog";
 import {EditUserDialogComponent} from "./edit-user-dialog/edit-user-dialog.component";
+import {Subject} from "rxjs";
+import {debounceTime} from "rxjs/operators";
 
 @Component({
   selector: 'app-user-managment',
@@ -24,15 +26,16 @@ export class UserManagmentComponent {
         this.isMobile = result.matches;
       });
   }
+  private searchSubject: Subject<string> = new Subject<string>();
+
   ngOnInit() {
     this.getUser();
-    console.log(this.usersData);
-  }
+    this.searchSubject.pipe(debounceTime(300)).subscribe((searchValue) => {
+      this.getUser(searchValue);
+    });  }
   onSearch() {
     try {
-      this.usersData = []; // Reset the array before fetching new data
-      this.getUser(this.searchData);
-      console.log(this.usersData);
+      this.searchSubject.next(this.searchData);
     } catch (err) {
       console.log(err);
     }

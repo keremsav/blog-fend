@@ -26,7 +26,7 @@
         <div class="align-items-center d-flex">
           <mat-form-field style="width: 300px">
             <mat-label>Search</mat-label>
-            <input matInput value="example@mail.com" name = 'Search' [(ngModel)]="searchData">
+            <input matInput value="example@mail.com" name = 'Search' [(ngModel)]="searchData" (input)='onSearch()'>
             <button matSuffix mat-button (click)="onSearch()"><mat-icon>search</mat-icon></button>
           </mat-form-field>
         </div>

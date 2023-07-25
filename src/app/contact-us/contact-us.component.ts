@@ -13,14 +13,14 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 export class ContactUsComponent {
   contactForm : FormGroup;
-  maxMessageCount: number = 2;
+  maxMessageCount: number = 10;
 
   constructor (private blogService : BlogService , private router : Router,private formBuilder: FormBuilder, private snackBar : MatSnackBar) {
     this.contactForm = this.formBuilder.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       subject: ['', Validators.required],
-      message: ['', Validators.required, this.maxLengthValidator(100)]
+      message: ['', Validators.required, this.maxLengthValidator(2000)]
     });
   }
 
