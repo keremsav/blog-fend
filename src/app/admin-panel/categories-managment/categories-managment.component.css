@@ -36,8 +36,8 @@ mat-icon {
 }
 /* app.component.scss */
 /* Optional: Customize the appearance of the toggle button */
-button[mat-icon-button] {
-  position: absolute;
-  top: 16px;
-  left: 16px;
+
+
+table {
+  width: 100%;
 }
