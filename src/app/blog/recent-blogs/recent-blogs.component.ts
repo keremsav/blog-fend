@@ -21,7 +21,7 @@ export class RecentBlogsComponent implements OnInit {
   }
 
   fetchRecentBlogs(): void {
-    this.blogService.getAllPosts(1,4,-1).subscribe(
+    this.blogService.getAllPosts(1,4,-1,'').subscribe(
       (response: any) => {
         this.recentBlogs = response.posts.map((blog: any) => {
           const createdAt = new Date(blog.createdAt);

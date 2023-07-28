@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import {BreakpointObserver, Breakpoints} from "@angular/cdk/layout";
+import {BlogService} from "../../services/blog.service";
+import {PageEvent} from "@angular/material/paginator";
+import {Subject} from "rxjs";
+import {debounceTime} from "rxjs/operators";
 
 @Component({
   selector: 'app-post-managment',
@@ -8,8 +12,15 @@ import {BreakpointObserver, Breakpoints} from "@angular/cdk/layout";
 })
 export class PostManagmentComponent {
   isMobile = false;
+  blogs : any [] = [];
+  posts : any [] = [];
+  blogRows: any[] = [];
+  currentPage: number = 1;
+  pageSize: number = 6;
+  totalBlogs: number = 0;
+  title : string = '';
 
-  constructor(private breakpointObserver: BreakpointObserver) {
+  constructor(private breakpointObserver: BreakpointObserver,private blogService:BlogService) {
     // Use breakpointObserver to check if the screen is mobile-sized
     this.breakpointObserver
       .observe([Breakpoints.Handset, Breakpoints.TabletPortrait])
@@ -17,4 +28,75 @@ export class PostManagmentComponent {
         this.isMobile = result.matches;
       });
   }
+
+  ngOnInit() {
+    this.fetchPosts(this.title);
+    this.searchSubject.pipe(debounceTime(300)).subscribe((searchValue) => {
+      this.fetchPosts(searchValue);
+    });
+
+  }
+  private searchSubject: Subject<string> = new Subject<string>();
+  onSearch() {
+    try {
+      this.searchSubject.next(this.title);
+    } catch (err) {
+      console.log(err);
+    }
+
+  }
+
+  fetchPosts(title : string): void {
+    this.blogService.getAllPosts(this.currentPage, this.pageSize,-1,title).subscribe(
+      (response: any) => {
+        this.totalBlogs = response.totalCount;
+        this.blogs = response.posts.map((blog : any) => {
+          // Format the date as desired
+          const createdAt = new Date(blog.createdAt);
+          const formattedDate = `${createdAt.getDate()} ${createdAt.toLocaleString('default', { month: 'long' })} ${createdAt.getFullYear()}`;
+          const truncatedContent = this.truncateContent(blog.content);
+          return { ...blog, formattedDate,truncatedContent};
+        });
+      },
+      error => {
+        console.error(error);
+      }
+    );
+  }
+
+
+  truncateContent(content: string): string {
+    const maxLength = 150; // İstenilen maksimum karakter sayısı için uygun bir değer verin
+    if (content.length > maxLength) {
+      return content.slice(0, maxLength) + '...';
+    } else {
+      return content;
+    }
+
+  }
+
+  onPageChange(event: PageEvent) {
+    this.currentPage = event.pageIndex + 1;
+    this.pageSize = event.pageSize;
+    this.fetchPosts(this.title);
+  }
+
+  deletePost (postId: any) {
+    if(postId) {
+     this.blogService.deletePost(postId).subscribe(() => {
+
+     },error => {
+       console.log(error);
+     })
+    }
+  }
+
+  confirmDelete(post:any) {
+    const isConfirmed = window.confirm(`Are you sure want to delete ${post.title} `)
+    if(isConfirmed) {
+      this.deletePost(post._id);
+      window.location.reload();
+    }
+  }
+
 }

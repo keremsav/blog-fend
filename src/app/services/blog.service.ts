@@ -69,11 +69,12 @@ export class BlogService {
     return this.http.post<any>(`${this.apiPostUrl}`, body);
   }
 
-  getAllPosts(page: number, limit: number,date : number): Observable<any[]> {
+  getAllPosts(page: number, limit: number,date : number,title:string): Observable<any[]> {
     const params = {
       page: page.toString(),
       limit: limit.toString(),
-      date : date.toString()
+      date : date.toString(),
+      title : title.toString()
     };
     return this.http.get<any[]>(`${this.apiPostUrl}`, { params });
   }

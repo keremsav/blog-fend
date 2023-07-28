@@ -44,6 +44,8 @@ import { EditUserDialogComponent } from './admin-panel/user-managment/edit-user-
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatSelectModule} from "@angular/material/select";
 import {MatPaginatorModule} from "@angular/material/paginator";
+import { EditPostComponent } from './admin-panel/post-managment/edit-post-dialog/edit-post.component';
+import { CreatePostDialogComponent } from './admin-panel/post-managment/create-post-dialog/create-post-dialog.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +72,8 @@ import {MatPaginatorModule} from "@angular/material/paginator";
     ContactManagmentComponent,
     BlogCategoryComponent,
     EditUserDialogComponent,
+    EditPostComponent,
+    CreatePostDialogComponent,
   ],
   imports: [
     BrowserModule,

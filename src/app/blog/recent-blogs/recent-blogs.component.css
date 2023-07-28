@@ -140,7 +140,7 @@ h3 {
 }
 
 .picsum-img-wrapper img {
-  filter: brightness(0.8); /* Adjust the value as needed to make it darker */
+  filter: brightness(0.8);
   aspect-ratio: 16 / 9;
   background-size: cover;
   max-height:500px;

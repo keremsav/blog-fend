@@ -43,7 +43,7 @@ export class BlogDetailComponent {
     this.fetchPosts();
   }
   fetchPosts(): void {
-    this.blogService.getAllPosts(this.currentPage, this.pageSize,-1).subscribe(
+    this.blogService.getAllPosts(this.currentPage, this.pageSize,-1,'').subscribe(
       (response: any) => {
         this.totalPages = response.totalPages ;
         this.blogs = response.posts.map((blog : any) => {
