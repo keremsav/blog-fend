@@ -46,6 +46,8 @@ import {MatSelectModule} from "@angular/material/select";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import { EditPostComponent } from './admin-panel/post-managment/edit-post-dialog/edit-post.component';
 import { CreatePostDialogComponent } from './admin-panel/post-managment/create-post-dialog/create-post-dialog.component';
+import {MatLegacyChipsModule} from "@angular/material/legacy-chips";
+import {MatChipsModule} from "@angular/material/chips";
 
 @NgModule({
   declarations: [
@@ -75,30 +77,32 @@ import { CreatePostDialogComponent } from './admin-panel/post-managment/create-p
     EditPostComponent,
     CreatePostDialogComponent,
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    FormsModule,
-    BrowserAnimationsModule,
-    MatButtonModule,
-    RouterLink,
-    MatToolbarModule,
-    MatIconModule,
-    MatInputModule,
-    MatCardModule,
-    AppRoutingModule,
-    CdkListbox,
-    FontAwesomeModule,
-    NgbModule,
-    ReactiveFormsModule,
-    MatSnackBarModule,
-    MatSidenavModule,
-    MatListModule,
-    MatTableModule,
-    MatDialogModule,
-    MatSelectModule,
-    MatPaginatorModule
-  ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        FormsModule,
+        BrowserAnimationsModule,
+        MatButtonModule,
+        RouterLink,
+        MatToolbarModule,
+        MatIconModule,
+        MatInputModule,
+        MatCardModule,
+        AppRoutingModule,
+        CdkListbox,
+        FontAwesomeModule,
+        NgbModule,
+        ReactiveFormsModule,
+        MatSnackBarModule,
+        MatSidenavModule,
+        MatListModule,
+        MatTableModule,
+        MatDialogModule,
+        MatSelectModule,
+        MatPaginatorModule,
+        MatLegacyChipsModule,
+        MatChipsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

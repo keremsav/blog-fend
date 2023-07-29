@@ -94,10 +94,13 @@ export class BlogService {
     return this.http.get<any>(`${this.apiPostUrl}/${id}`);
   }
 
-  updatePost(id: string, title: string, content: string, tags: string[]): Observable<any> {
+  updatePost(id: string, title: string, content: string,author : string, categoryIds : [], tags: string[],image : string,): Observable<any> {
     const body = {
       title: title,
       content: content,
+      author : author,
+      categoryIds : categoryIds,
+      image : image,
       tags: tags
     };
 

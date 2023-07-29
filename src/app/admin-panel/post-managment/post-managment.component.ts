@@ -4,6 +4,9 @@ import {BlogService} from "../../services/blog.service";
 import {PageEvent} from "@angular/material/paginator";
 import {Subject} from "rxjs";
 import {debounceTime} from "rxjs/operators";
+import {MatDialog} from "@angular/material/dialog";
+import {EditUserDialogComponent} from "../user-managment/edit-user-dialog/edit-user-dialog.component";
+import {EditPostComponent} from "./edit-post-dialog/edit-post.component";
 
 @Component({
   selector: 'app-post-managment',
@@ -20,7 +23,7 @@ export class PostManagmentComponent {
   totalBlogs: number = 0;
   title : string = '';
 
-  constructor(private breakpointObserver: BreakpointObserver,private blogService:BlogService) {
+  constructor(private breakpointObserver: BreakpointObserver,private blogService:BlogService, private dialog : MatDialog) {
     // Use breakpointObserver to check if the screen is mobile-sized
     this.breakpointObserver
       .observe([Breakpoints.Handset, Breakpoints.TabletPortrait])
@@ -98,5 +101,22 @@ export class PostManagmentComponent {
       window.location.reload();
     }
   }
+
+  openEditDialog(post: any): void {
+    const dialogRef = this.dialog.open(EditPostComponent, {
+      width: '80%',
+      height : '80%',
+      data: { ...post } // Pass a copy of the user data to the dialog
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        // If the result is not null (i.e., the user clicked "Save"), update the user data
+        window.location.reload();
+      }
+    });
+  }
+
+
 
 }

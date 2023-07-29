@@ -1,1 +1,47 @@
-<p>edit-post works!</p>
+<mat-dialog-content>
+  <form>
+    <mat-form-field>
+      <input matInput placeholder="Title" [(ngModel)]="post.title" name="title">
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea matInput placeholder="Content" [(ngModel)]="post.content" name="content" rows="10"></textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Categories</mat-label>
+      <mat-select placeholder="Select categories" [(ngModel)]="post.categoryIds" name = "category" multiple>
+        <mat-option *ngFor="let category of allCategories" [value]="category._id" >
+          {{ category.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Authors" [(ngModel)]="post.author" name="authors">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Tags</mat-label>
+      <mat-chip-grid #chipGrid>
+        <mat-chip-row *ngFor="let tag of post.tags"
+                      (removed)="remove(tag)"
+                      [editable]="true"
+                      (edited)="edit(tag,$event)">
+          {{tag}}
+          <button matChipRemove [attr.aria-label]="'remove ' + tag">
+            <mat-icon>cancel</mat-icon>
+          </button>
+        </mat-chip-row>
+      </mat-chip-grid>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Image URL" [(ngModel)]="post.image" name="image">
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button (click)="onSave()">Save</button>
+  <button mat-button (click)="onCancel()">Cancel</button>
+</mat-dialog-actions>

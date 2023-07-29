@@ -1,0 +1,36 @@
+/* edit-post.component.css */
+
+/* Style for the dialog content */
+mat-dialog-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Style for the form fields */
+mat-form-field {
+  width: 100%;
+}
+
+/* Style for the textarea */
+textarea {
+  resize: none;
+}
+
+/* Style for the mat-select (category dropdown) */
+mat-select {
+  width: 100%;
+}
+
+/* Style for the mat-dialog-actions (buttons) */
+mat-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+}
+
+/* Optional: Adjust the dialog width if needed */
+.mat-dialog-container {
+  max-width: 900px;
+  max-height: 600px;
+}

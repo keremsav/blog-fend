@@ -52,7 +52,7 @@
                   <p>{{ blog.truncatedContent }}</p>
                 </mat-card-content>
                 <mat-card-actions >
-                  <button style="position: absolute;left: 10px; bottom: 10px; color: white" mat-button>Edit</button>
+                  <button style="position: absolute;left: 10px; bottom: 10px; color: white" mat-button (click)="openEditDialog(blog)">Edit</button>
                   <button style="position: absolute;left: 70px; bottom: 10px; color: white" mat-button (click)="confirmDelete(blog)">Delete</button>
                 </mat-card-actions>
               </mat-card>

@@ -24,7 +24,6 @@ export class EditUserDialogComponent {
     public dialogRef: MatDialogRef<EditUserDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
-    console.log(data);
     this.editedUser = data;
   }
 
