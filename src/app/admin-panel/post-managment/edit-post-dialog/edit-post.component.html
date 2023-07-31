@@ -1,10 +1,12 @@
 <mat-dialog-content>
   <form>
     <mat-form-field>
+      <mat-label>Title</mat-label>
       <input matInput placeholder="Title" [(ngModel)]="post.title" name="title">
     </mat-form-field>
 
     <mat-form-field>
+      <mat-label>Content</mat-label>
       <textarea matInput placeholder="Content" [(ngModel)]="post.content" name="content" rows="10"></textarea>
     </mat-form-field>
 
@@ -18,24 +20,12 @@
     </mat-form-field>
 
     <mat-form-field>
+      <mat-label>Author</mat-label>
       <input matInput placeholder="Authors" [(ngModel)]="post.author" name="authors">
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Tags</mat-label>
-      <mat-chip-grid #chipGrid>
-        <mat-chip-row *ngFor="let tag of post.tags"
-                      (removed)="remove(tag)"
-                      [editable]="true"
-                      (edited)="edit(tag,$event)">
-          {{tag}}
-          <button matChipRemove [attr.aria-label]="'remove ' + tag">
-            <mat-icon>cancel</mat-icon>
-          </button>
-        </mat-chip-row>
-      </mat-chip-grid>
     </mat-form-field>
 
     <mat-form-field>
+      <mat-label>Image</mat-label>
       <input matInput placeholder="Image URL" [(ngModel)]="post.image" name="image">
     </mat-form-field>
   </form>
