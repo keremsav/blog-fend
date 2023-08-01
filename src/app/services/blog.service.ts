@@ -59,11 +59,14 @@ export class BlogService {
     return this.http.put<any>(`${this.apiCategoryUrl}/${id}`,body);
   }
 
-  createPost(title: string, content: string, tags: string[]): Observable<any> {
+  createPost(title: string, content: string, tags: string[],categoryIds : string[],image : string,author : string): Observable<any> {
     const body = {
       title: title,
       content: content,
-      tags: tags
+      tags: tags,
+      categoryIds : categoryIds,
+      image : image,
+      author : author
     };
 
     return this.http.post<any>(`${this.apiPostUrl}`, body);

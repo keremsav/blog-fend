@@ -1,1 +1,36 @@
-<p>create-post-dialog works!</p>
+<mat-dialog-content>
+  <form>
+    <mat-form-field>
+      <mat-label>Title</mat-label>
+      <input matInput placeholder="Title" [(ngModel)]="post.title" name="title">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Content</mat-label>
+      <textarea matInput placeholder="Content" [(ngModel)]="post.content" name="content" rows = "10"></textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Categories</mat-label>
+      <mat-select placeholder="Select categories" [(ngModel)]="post.categoryIds" name = "category" multiple>
+        <mat-option *ngFor="let category of allCategories" [value]="category._id" >
+          {{ category.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Author</mat-label>
+      <input matInput placeholder="Author" [(ngModel)]="post.author" name="author">
+    </mat-form-field>
+    <mat-form-field>
+
+      <mat-label>Image</mat-label>
+      <input matInput placeholder="Image" [(ngModel)]="post.image" name="image">
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onSave()">Save</button>
+  <button mat-button (click)="onCancel()">Cancel</button>
+</mat-dialog-actions>

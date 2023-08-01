@@ -7,6 +7,7 @@ import {debounceTime} from "rxjs/operators";
 import {MatDialog} from "@angular/material/dialog";
 import {EditUserDialogComponent} from "../user-managment/edit-user-dialog/edit-user-dialog.component";
 import {EditPostComponent} from "./edit-post-dialog/edit-post.component";
+import {CreatePostDialogComponent} from "./create-post-dialog/create-post-dialog.component";
 
 @Component({
   selector: 'app-post-managment',
@@ -101,6 +102,13 @@ export class PostManagmentComponent {
       window.location.reload();
     }
   }
+  createBlogPost (title : string,content : string, tags : string[],categoryIds : string[],image : string,author : string) {
+    this.blogService.createPost(title,content,tags,categoryIds,image,author).subscribe(() => {
+
+    }, error =>  {
+      console.log(error);
+    })
+  }
 
   openEditDialog(post: any): void {
     const dialogRef = this.dialog.open(EditPostComponent, {
@@ -116,6 +124,24 @@ export class PostManagmentComponent {
       }
     });
   }
+
+  openCreateDialog() : void {
+    const dialogRef = this.dialog.open(CreatePostDialogComponent, {
+      width : '80%',
+      height : '80%',
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      if(result) {
+        if(result.title !== '' || result.content !== '' || result.author !== '') {
+          console.log(result);
+          this.createBlogPost(result.title,result.content,result.tags,result.categoryIds,result.image,result.author);
+          window.location.reload();
+        }
+      }
+    })
+
+  };
+
 
 
 
