@@ -11,8 +11,8 @@
         <a class="dropdown-toggle">
         Categories
         </a>
-        <ul class="dropdown-menu  justify-content-center" style="flex-direction: column; width: auto" [hidden]="!isDropdownOpen">
-          <li *ngFor="let category of categories"><a href="/category/{{category.id}}" class="dropdown-item justify-content-center">{{category.name}}</a></li>
+        <ul class="dropdown-menu " style="flex-direction: column; width: auto" [hidden]="!isDropdownOpen">
+          <li *ngFor="let category of categories"><a href="/category/{{category.id}}" style="min-width: 150px; text-align: center" class="dropdown-item align-items-center">{{category.name}}</a></li>
           <!-- Add more category list items here -->
         </ul>
       </li>

@@ -3,12 +3,11 @@
 <div class="container">
   <div class="row mt-5 pt-5">
     <div class="col-md-9 post-content">
-      <div class="row">
-        <div *ngFor="let blog of blogs" class="d-flex ">
+      <div class="row" *ngFor="let blog of blogs" >
           <div class="col-md-6 col-sm-12">
             <img src="{{blog.image}}" alt="Blog Image" style="max-height: 250px" class="w-100 mt-2 mb-2" (click)="navigateToBlog(blog._id)">
           </div>
-          <div class="col-md-6 col-sm-12 mx-3 mt-3">
+          <div class="col-md-6 col-sm-12 ">
             <div class="author-date ">
               <p class="author">{{blog.author}}</p>
               <p class="date">{{blog.formattedDate}}</p>
@@ -19,12 +18,11 @@
               <span class="tag" *ngFor="let tag of blog.tags">{{ tag }}</span>
             </div>
           </div>
-        </div>
-        <div class="pagination">
-          <button class="pagination-button" (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
-          <span class="pagination-page">{{ currentPage }}</span>
-          <button class="pagination-button" (click)="nextPage()">Next</button>
-        </div>
+      </div>
+      <div class="pagination">
+        <button class="pagination-button" (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+        <span class="pagination-page">{{ currentPage }}</span>
+        <button class="pagination-button" (click)="nextPage()">Next</button>
       </div>
     </div>
     <div class="col-md-3">

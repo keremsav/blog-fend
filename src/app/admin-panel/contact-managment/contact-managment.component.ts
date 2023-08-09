@@ -4,6 +4,7 @@ import {BlogService} from "../../services/blog.service";
 import {PageEvent} from "@angular/material/paginator";
 import {Subject} from "rxjs";
 import {debounceTime } from "rxjs/operators";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-contact-managment',
@@ -21,7 +22,7 @@ export class ContactManagmentComponent {
 
   pagedContacts: any[] = []; // Contacts array for the current page
 
-  constructor(private breakpointObserver: BreakpointObserver, private blogService : BlogService) {
+  constructor(private breakpointObserver: BreakpointObserver, private blogService : BlogService,private router : Router) {
     // Use breakpointObserver to check if the screen is mobile-sized
     this.breakpointObserver
       .observe([Breakpoints.Handset, Breakpoints.TabletPortrait])
@@ -97,6 +98,13 @@ export class ContactManagmentComponent {
     if (isConfirmed) {
       this.deleteContact(contact._id);
       window.location.reload();
+    }
+  }
+  logOut() {
+    const isConfirmed = window.confirm('Are you sure you want to logOut?')
+    if(isConfirmed) {
+      localStorage.removeItem('authToken');
+      this.router.navigate(['/panel/login']);
     }
   }
 

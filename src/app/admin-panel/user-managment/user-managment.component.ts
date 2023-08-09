@@ -5,6 +5,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {EditUserDialogComponent} from "./edit-user-dialog/edit-user-dialog.component";
 import {Subject} from "rxjs";
 import {debounceTime} from "rxjs/operators";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-user-managment',
@@ -19,7 +20,7 @@ export class UserManagmentComponent {
   displayedColumns: string[] = ['id', 'username', 'email', 'isAdmin', 'isVerified','actions'];
 
 
-  constructor(private breakpointObserver: BreakpointObserver,private blogService : BlogService, public dialog: MatDialog) {
+  constructor(private breakpointObserver: BreakpointObserver,private blogService : BlogService, public dialog: MatDialog,private router : Router) {
     this.breakpointObserver
       .observe([Breakpoints.Handset, Breakpoints.TabletPortrait])
       .subscribe((result) => {
@@ -70,6 +71,13 @@ export class UserManagmentComponent {
         window.location.reload();
       }
     });
+  }
+  logOut() {
+    const isConfirmed = window.confirm('Are you sure you want to logOut?')
+    if(isConfirmed) {
+      localStorage.removeItem('authToken');
+      this.router.navigate(['/panel/login']);
+    }
   }
 
 

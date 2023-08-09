@@ -13,7 +13,6 @@ export class HeaderComponent {
 
   ngOnInit() : void {
     this.fetchCategories();
-    console.log(this.categories);
   }
 
   fetchCategories() {
@@ -39,6 +38,7 @@ export class HeaderComponent {
   isMenuOpen: boolean = false;
 
   toggleMenu() {
+
     this.isMenuOpen = !this.isMenuOpen;
   }
 }

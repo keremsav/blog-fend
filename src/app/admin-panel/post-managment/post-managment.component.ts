@@ -8,6 +8,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {EditUserDialogComponent} from "../user-managment/edit-user-dialog/edit-user-dialog.component";
 import {EditPostComponent} from "./edit-post-dialog/edit-post.component";
 import {CreatePostDialogComponent} from "./create-post-dialog/create-post-dialog.component";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-post-managment',
@@ -24,7 +25,7 @@ export class PostManagmentComponent {
   totalBlogs: number = 0;
   title : string = '';
 
-  constructor(private breakpointObserver: BreakpointObserver,private blogService:BlogService, private dialog : MatDialog) {
+  constructor(private breakpointObserver: BreakpointObserver,private blogService:BlogService, private dialog : MatDialog,private router : Router) {
     // Use breakpointObserver to check if the screen is mobile-sized
     this.breakpointObserver
       .observe([Breakpoints.Handset, Breakpoints.TabletPortrait])
@@ -77,6 +78,13 @@ export class PostManagmentComponent {
       return content;
     }
 
+  }
+  logOut() {
+    const isConfirmed = window.confirm('Are you sure you want to logOut?')
+    if(isConfirmed) {
+      localStorage.removeItem('authToken');
+      this.router.navigate(['/panel/login']);
+    }
   }
 
   onPageChange(event: PageEvent) {

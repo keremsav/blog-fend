@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {BreakpointObserver, Breakpoints} from "@angular/cdk/layout";
 import {BlogService} from "../../services/blog.service";
+import {Router} from "@angular/router";
 import {MatTable} from "@angular/material/table";
 
 @Component({
@@ -13,7 +14,7 @@ export class CategoriesManagmentComponent {
   categories : [] = [];
   newCategoryName = '';
 
-  constructor(private breakpointObserver: BreakpointObserver,private blogService : BlogService) {
+  constructor(private breakpointObserver: BreakpointObserver,private blogService : BlogService, private router:Router) {
     // Use breakpointObserver to check if the screen is mobile-sized
     this.breakpointObserver
       .observe([Breakpoints.Handset, Breakpoints.TabletPortrait])
@@ -23,6 +24,13 @@ export class CategoriesManagmentComponent {
   }
   ngOnInit() {
     this.getCategories();
+  }
+  logOut() {
+    const isConfirmed = window.confirm('Are you sure you want to logOut?')
+    if(isConfirmed) {
+      localStorage.removeItem('authToken');
+      this.router.navigate(['/panel/login']);
+    }
   }
 
   getCategories() {

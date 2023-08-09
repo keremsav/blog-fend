@@ -43,9 +43,6 @@ export class BlogCategoryComponent {
           const truncatedContent = this.truncateContent(blog.content);
           return { ...blog, formattedDate,truncatedContent};
         });
-        if(this.currentPage === 1) {
-          this.latestBlogs = this.blogs;
-        }
         this.splitBlogsIntoRows();
       },
       error => {

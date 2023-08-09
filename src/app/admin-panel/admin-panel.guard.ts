@@ -13,7 +13,7 @@ export class AdminPanelGuard implements CanActivate {
     if (this.authService.isAdmin() === true) {
       return true;
     } else {
-      this.router.navigate(['/login']);
+      this.router.navigate(['/panel/login']);
       return false;
     }
   }

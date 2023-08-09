@@ -5,15 +5,12 @@
 
 .blog-container {
   margin-top: 70px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+
 }
 
 .blog-row {
   width: 100%;
-  display: flex;
-  justify-content: space-between;
+
   margin-bottom: 20px;
 }
 

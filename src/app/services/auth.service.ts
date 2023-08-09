@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import jwtDecode from "jwt-decode";
 
 @Injectable({
   providedIn: 'root'
@@ -12,10 +13,25 @@ export class AuthService {
 
   // Kullanıcının admin olup olmadığını kontrol eden fonksiyon
   isAdmin(): boolean {
-    let cookie = window.localStorage.getItem('loggedIn');
-    if(cookie === 'true') {
-      return true;
+    const token = localStorage.getItem('authToken');
+    if(token) {
+      try {
+        const decodedToken : any = jwtDecode(token);
+        const currentTimestamp = Math.floor(Date.now() / 1000);
+        if (decodedToken.exp < currentTimestamp) {
+          // Token is expired
+          return false;
+        } else {
+          console.log('Token is valid');
+          console.log('Decoded Token:', decodedToken);
+          return true;
+        }
+      } catch (err) {
+        console.log(err);
+        return false;
+      }
     } else {
+      console.log('Token not found in localStorage');
       return false;
     }
   }

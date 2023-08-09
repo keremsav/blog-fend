@@ -42,24 +42,6 @@
   cursor: pointer;
 }
 
-
-.signup-btn {
-  display: inline-flex;
-  align-items: center;
-  padding: 6px 12px;
-  border-radius: 40px;
-  border: 1.5px solid #000000;
-  background-color: transparent;
-  color: #ffffff;
-  transition: background-color 0.3s ease-in-out;
-  margin-top: 1px;
-}
-
-.signup-btn:hover {
-  background-color: #ffffff;
-  color: #000000;
-}
-
 @media (max-width: 768px) {
   .header {
     padding: 10px;
@@ -70,10 +52,10 @@
     text-align: center;
     max-height: 0; /* Ekleyin */
     overflow: hidden; /* Ekleyin */
-    transition: opacity 0.3s ease-in-out, visibility 0s linear 0.3s, transform 0.3s ease-in-out;
     visibility: hidden;
     opacity: 0;
-    transform: translateY(-100px);
+    transform: translateX(100%);
+    transition: transform 1s ease-in ,visibility 0.3s linear,opacity 0.3s linear;
   }
 
   .header-toggle {
@@ -81,9 +63,9 @@
     align-items: end;
   }
   .header-links.open {
-
+    display: flex;
     position: absolute;
-    max-height: 400px;
+    min-height: 100vh;
     top: 70px;
     left:0;
     right: 0;
@@ -91,21 +73,21 @@
     visibility: visible;
     opacity: 1;
     padding: 20px;
-
-    transform: translateY(0);
-    transition-delay: 0s, 0s,0s;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(0);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2),
     0 -2px 4px rgba(0, 0, 0, 0);
   }
+
   .header-links.open ul {
     flex-direction: column;
     align-items: center;
-    text-align: start;
+    text-align: center;
   }
 
   .header-links.open li {
-    border-bottom: 1px solid #cccccc;
-    margin-bottom: 10px;  }
+    margin-bottom: 20px;  }
 
   .header-links.open a {
     color: black;
@@ -125,28 +107,3 @@
 
 /* ... Other styles ... */
 
-.category-menu {
-  position: absolute;
-  top: 70px;
-  left: 0;
-  right: 0;
-  background: #f2f2f2;
-  visibility: hidden;
-  opacity: 0;
-  padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 -2px 4px rgba(0, 0, 0, 0);
-  display: flex;
-  justify-content: center; /* Center the content horizontally */
-}
-
-.category-list {
-  display: flex;
-  flex-wrap: wrap; /* Allow list items to wrap to the next line if they don't fit horizontally */
-  justify-content: center; /* Center the list items horizontally */
-}
-
-.category-list li:not(:last-child) {
-  margin-right: 10px; /* Add some spacing between list items */
-}
-
-/* ... Other media queries and styles ... */

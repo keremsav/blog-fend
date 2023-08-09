@@ -17,4 +17,5 @@ export class CommentsManagmentComponent {
         this.isMobile = result.matches;
       });
   }
+
 }

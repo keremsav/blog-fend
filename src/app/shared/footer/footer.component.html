@@ -19,6 +19,9 @@
       </div>
       <div class="col-md-2 col-sm-6 text-start">
         <h2>Categories</h2>
+        <ul class="list-unstyled links">
+          <li class="mt-1" *ngFor="let category of categories"><a href="/category/{{category._id}}"><mat-icon>chevron_right</mat-icon>{{category.name}}</a> </li>
+        </ul>
 
       </div>
       <div class="col-md-4 text-start">

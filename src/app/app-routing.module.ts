@@ -27,11 +27,11 @@ const routes: Routes = [
   {path: 'contact-us', component: ContactUsComponent},
   {path: 'panel', component: AdminPanelComponent , canActivate: [AdminPanelGuard]},
   {path: 'category/:id' ,component: BlogCategoryComponent},
-  {path:'panel/users',component: UserManagmentComponent},
-  {path:'panel/posts',component: PostManagmentComponent},
-  {path:'panel/contacts',component: ContactManagmentComponent},
-  {path:'panel/comments',component: CommentsManagmentComponent},
-  {path:'panel/categories',component: CategoriesManagmentComponent},
+  {path:'panel/users',component: UserManagmentComponent, canActivate: [AdminPanelGuard]},
+  {path:'panel/posts',component: PostManagmentComponent, canActivate: [AdminPanelGuard]},
+  {path:'panel/contacts',component: ContactManagmentComponent, canActivate: [AdminPanelGuard]},
+  {path:'panel/comments',component: CommentsManagmentComponent, canActivate: [AdminPanelGuard]},
+  {path:'panel/categories',component: CategoriesManagmentComponent, canActivate: [AdminPanelGuard]},
 
 
 
